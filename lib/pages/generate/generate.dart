@@ -65,14 +65,21 @@ class GeneratePage extends StatelessWidget {
       children: [
         CustomScrollView(slivers: [
           SliverAppBar(
-            title: Text('随机',
+            flexibleSpace: const FlexibleSpaceBar(
+              titlePadding: EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 16,
+              ),
+              title: Text('随机',
                 style: TextStyle(
-                  color: Get.textTheme.headline1!.color,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 24,
-                )),
-            collapsedHeight: 74,
-            backgroundColor: Colors.transparent,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+            pinned: true,
+            expandedHeight: 100,
+            backgroundColor: Get.theme.backgroundColor,
             shadowColor: Colors.transparent,
           ),
           SliverList(
@@ -83,6 +90,7 @@ class GeneratePage extends StatelessWidget {
                 child: Text(
                   '前区',
                   style: TextStyle(
+                    color: Colors.black45,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
@@ -99,6 +107,7 @@ class GeneratePage extends StatelessWidget {
                 child: Text(
                   '后区',
                   style: TextStyle(
+                    color: Colors.black45,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
@@ -111,6 +120,7 @@ class GeneratePage extends StatelessWidget {
               ),
             ]),
           ),
+          const SliverFillRemaining(child: Center(child: Text('Center'))),
         ]),
         Positioned(
           bottom: 0,
@@ -134,10 +144,11 @@ class GenerateBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: Get.width / 2,
+      width: Get.width * 0.52,
       child: Container(
         padding: const EdgeInsets.all(0),
         decoration: BoxDecoration(
+          color: Get.theme.backgroundColor,
           border: Border.all(
             width: 2,
             color: Get.theme.primaryColor,
@@ -148,8 +159,8 @@ class GenerateBottom extends StatelessWidget {
         ),
         child: Row(children: [
           SizedBox(
-            height: 46,
-            width: 46,
+            height: 50,
+            width: 50,
             child: TextButton(
               onPressed: () {},
               child: const Icon(Icons.refresh),
@@ -172,7 +183,7 @@ class GenerateBottom extends StatelessWidget {
           ),
           Expanded(
             child: SizedBox(
-              height: 46,
+              height: 50,
               child: TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
@@ -180,7 +191,8 @@ class GenerateBottom extends StatelessWidget {
                   padding: const EdgeInsets.all(0),
                   shape: const StadiumBorder(),
                 ),
-                child: const Text('关注号码',
+                child: const Text(
+                  '关注号码',
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.black87,

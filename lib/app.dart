@@ -38,6 +38,8 @@ class App extends StatelessWidget {
       scaffoldBackgroundColor: const Color(0xfff9f9f9),
     );
 
-    return theme.copyWith();
+    return theme.copyWith(
+      backgroundColor: const Color(0xfff9f9f9),
+    );
   }
 }
