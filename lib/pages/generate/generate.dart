@@ -136,7 +136,7 @@ class GenerateBottom extends StatelessWidget {
     return SizedBox(
       width: Get.width / 2,
       child: Container(
-        padding: const EdgeInsets.all(4),
+        padding: const EdgeInsets.all(0),
         decoration: BoxDecoration(
           border: Border.all(
             width: 2,
@@ -148,13 +148,13 @@ class GenerateBottom extends StatelessWidget {
         ),
         child: Row(children: [
           SizedBox(
-            height: 40,
-            width: 40,
+            height: 46,
+            width: 46,
             child: TextButton(
               onPressed: () {},
               child: const Icon(Icons.refresh),
               style: TextButton.styleFrom(
-                primary: Colors.black54,
+                primary: Get.theme.primaryColor,
                 shape: const StadiumBorder(),
                 padding: const EdgeInsets.all(0),
               ),
@@ -172,19 +172,21 @@ class GenerateBottom extends StatelessWidget {
           ),
           Expanded(
             child: SizedBox(
-              height: 40,
+              height: 46,
               child: TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
-                  primary: Colors.black87,
+                  primary: Get.theme.primaryColor,
                   padding: const EdgeInsets.all(0),
-                  textStyle: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w800,
-                  ),
                   shape: const StadiumBorder(),
                 ),
-                child: const Text('关注号码'),
+                child: const Text('关注号码',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
               ),
             ),
           ),
