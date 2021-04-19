@@ -70,7 +70,7 @@ class GeneratePage extends StatelessWidget {
                 horizontal: 16,
                 vertical: 16,
               ),
-              title: Text('随机',
+              title: Text('随机彩票',
                 style: TextStyle(
                   color: Colors.black87,
                   fontWeight: FontWeight.w800,
@@ -120,6 +120,7 @@ class GeneratePage extends StatelessWidget {
               ),
             ]),
           ),
+          SliverFillViewport(delegate: delegate)
           const SliverFillRemaining(child: Center(child: Text('Center'))),
         ]),
         Positioned(
