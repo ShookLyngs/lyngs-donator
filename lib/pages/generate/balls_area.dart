@@ -15,6 +15,7 @@ class BallsArea extends StatelessWidget {
     for (var i = 0; i < length; i++) {
       list.add(Ball(
         content: '${i + 1}',
+        initialValue: false,
       ));
     }
     return list;
@@ -24,11 +25,15 @@ class BallsArea extends StatelessWidget {
 class Ball extends StatelessWidget {
   final double width;
   final String content;
+  final RxBool active = false.obs;
 
   Ball({
+    required bool initialValue,
     required this.content,
     this.width = 0.125,
-  });
+  }) {
+    active.value = initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,24 +44,28 @@ class Ball extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(4),
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              active.value = !active.value;
+            },
             borderRadius: BorderRadius.circular(30),
-            child: Ink(
-              child: Center(
-                child: Text('$content',
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.black87,
+            child: Obx(() {
+              return Ink(
+                child: Center(
+                  child: Text('$content',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w800,
+                      color: active.value ? Colors.white : Colors.black87,
+                    ),
                   ),
                 ),
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.black12),
-                borderRadius: BorderRadius.circular(30),
-              ),
-            ),
+                decoration: BoxDecoration(
+                  color: active.value ? Get.theme.primaryColor : Colors.white,
+                  border: Border.all(color: Colors.black12),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              );
+            }),
           ),
         ),
       )

@@ -1,210 +1,30 @@
 import '../../main.dart';
-import 'balls_area.dart';
+import 'app_bar.dart';
+import 'footer.dart';
+import 'full_balls_list.dart';
 
 class GeneratePage extends StatelessWidget {
   const GeneratePage();
 
   @override
   Widget build(BuildContext context) {
-    /*return Container(
-      child: CustomScrollView(slivers: [
-        const SliverAppBar(
-          title: Text(
-              '随机',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-              )
-          ),
-          collapsedHeight: 74,
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          // foregroundColor: Colors.black,
-        ),
-        SliverList(
-          delegate: SliverChildListDelegate([
-            const SizedBox(height: 16),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text('前区',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: BallsArea(35),
-            ),
-
-            const SizedBox(height: 32),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text('后区',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: BallsArea(12),
-            ),
-
-            const SizedBox(height: 32),
-          ]),
-        ),
-      ]),
-    );*/
     return Stack(
       children: [
         CustomScrollView(slivers: [
-          SliverAppBar(
-            flexibleSpace: const FlexibleSpaceBar(
-              titlePadding: EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 16,
-              ),
-              title: Text('随机彩票',
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-            ),
-            pinned: true,
-            expandedHeight: 100,
-            backgroundColor: Get.theme.backgroundColor,
-            shadowColor: Colors.transparent,
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              const SizedBox(height: 16),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  '前区',
-                  style: TextStyle(
-                    color: Colors.black45,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: BallsArea(35),
-              ),
-              const SizedBox(height: 32),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  '后区',
-                  style: TextStyle(
-                    color: Colors.black45,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: BallsArea(12),
-              ),
-            ]),
-          ),
-          SliverFillViewport(delegate: delegate)
-          const SliverFillRemaining(child: Center(child: Text('Center'))),
+          // AppBar
+          GenerateAppBar(),
+          // List when show all balls
+          GenerateFullBallsList(),
         ]),
         Positioned(
           bottom: 0,
           width: Get.width,
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 30,
-            ),
-            child: Center(
-              child: GenerateBottom(),
-            ),
+            padding: const EdgeInsets.all(30),
+            child: Center(child: GenerateFooter()),
           ),
         ),
       ],
-    );
-  }
-}
-
-class GenerateBottom extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: Get.width * 0.52,
-      child: Container(
-        padding: const EdgeInsets.all(0),
-        decoration: BoxDecoration(
-          color: Get.theme.backgroundColor,
-          border: Border.all(
-            width: 2,
-            color: Get.theme.primaryColor,
-          ),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(30),
-          ),
-        ),
-        child: Row(children: [
-          SizedBox(
-            height: 50,
-            width: 50,
-            child: TextButton(
-              onPressed: () {},
-              child: const Icon(Icons.refresh),
-              style: TextButton.styleFrom(
-                primary: Get.theme.primaryColor,
-                shape: const StadiumBorder(),
-                padding: const EdgeInsets.all(0),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: SizedBox(
-              width: 1,
-              height: 20,
-              child: Container(
-                color: Colors.black12,
-              ),
-            ),
-          ),
-          Expanded(
-            child: SizedBox(
-              height: 50,
-              child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  primary: Get.theme.primaryColor,
-                  padding: const EdgeInsets.all(0),
-                  shape: const StadiumBorder(),
-                ),
-                child: const Text(
-                  '关注号码',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ]),
-      ),
     );
   }
 }
