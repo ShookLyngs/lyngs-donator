@@ -14,32 +14,34 @@ class GeneratePage extends StatelessWidget {
       children: [
         NestedScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          headerSliverBuilder: (_, __) => [
-            GenerateAppBar(),
-          ],
+          headerSliverBuilder: (_, __) => [],
           body: PageView(
             controller: controller,
-            scrollDirection: Axis.horizontal,
+            scrollDirection: Axis.vertical,
             physics: const AlwaysScrollableScrollPhysics(),
             children: [
-              GenerateFullBallsList(),
+              CustomScrollView(slivers: [
+                // AppBar
+                GenerateAppBar(),
+                // List when show all balls
+                GenerateFullBallsList(),
+                GenerateFullBallsList(),
+              ]),
+              // GenerateFullBallsList(),
               const Center(
                 child: Text('Second Page'),
               ),
-              const Center(
-                child: Text('Third Page'),
-              )
             ],
           ),
         ),
-        Positioned(
+        /*Positioned(
           bottom: 0,
           width: Get.width,
           child: Padding(
             padding: const EdgeInsets.all(30),
             child: Center(child: GenerateFooter()),
           ),
-        ),
+        ),*/
       ],
     );
   }
