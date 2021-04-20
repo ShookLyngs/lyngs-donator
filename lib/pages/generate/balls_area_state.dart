@@ -15,6 +15,9 @@ class BallsAreaState extends GetxController {
   bool isActive(int value) {
     return actives.contains(value);
   }
+  bool isFull() {
+    return actives.length == maxLength;
+  }
   void add(int value) {
     if (actives.length < maxLength) {
       actives.add(value);

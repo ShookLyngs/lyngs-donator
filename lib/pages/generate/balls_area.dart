@@ -69,9 +69,8 @@ class Ball extends StatelessWidget {
           padding: const EdgeInsets.all(4),
           child: Obx(() {
             return InkWell(
-              onTap: () {
-                state.toggle(content);
-              },
+              onTap: state.isActive(content)
+                  ? () => state.toggle(content) : null,
               borderRadius: BorderRadius.circular(30),
               child: Ink(
                 child: Center(
