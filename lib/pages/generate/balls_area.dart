@@ -1,9 +1,31 @@
 import '../../main.dart';
+import 'balls_area_state.dart';
 
 class BallsArea extends StatelessWidget {
   final int length;
+  final int maxActiveLength;
+  final double width;
+  late final String tag;
 
-  BallsArea(this.length);
+  BallsArea({
+    required this.length,
+    required this.maxActiveLength,
+    this.width = 0.125,
+    String? tag,
+    List<int> initialValue = const <int>[],
+  }) {
+    // If `tag` did not passed, use timestamp as tag
+    this.tag = tag ?? '${(DateTime.now().millisecondsSinceEpoch)}';
+
+    // Create state for current widget only
+    Get.put(
+      BallsAreaState(
+        initialValue: initialValue,
+        maxLength: maxActiveLength,
+      ),
+      tag: this.tag,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +36,9 @@ class BallsArea extends StatelessWidget {
     final list = <Widget>[];
     for (var i = 0; i < length; i++) {
       list.add(Ball(
-        content: '${i + 1}',
-        initialValue: false,
+        content: i + 1,
+        width: width,
+        tag: tag,
       ));
     }
     return list;
@@ -24,15 +47,16 @@ class BallsArea extends StatelessWidget {
 
 class Ball extends StatelessWidget {
   final double width;
-  final String content;
-  final RxBool active = false.obs;
+  final int content;
+  final String tag;
+  late final BallsAreaState state;
 
   Ball({
-    required bool initialValue,
     required this.content,
-    this.width = 0.125,
+    required this.width,
+    required this.tag,
   }) {
-    active.value = initialValue;
+    state = Get.find<BallsAreaState>(tag: tag);
   }
 
   @override
@@ -43,30 +67,32 @@ class Ball extends StatelessWidget {
         aspectRatio: 1,
         child: Padding(
           padding: const EdgeInsets.all(4),
-          child: InkWell(
-            onTap: () {
-              active.value = !active.value;
-            },
-            borderRadius: BorderRadius.circular(30),
-            child: Obx(() {
-              return Ink(
+          child: Obx(() {
+            return InkWell(
+              onTap: () {
+                state.toggle(content);
+              },
+              borderRadius: BorderRadius.circular(30),
+              child: Ink(
                 child: Center(
                   child: Text('$content',
                     style: TextStyle(
-                      fontSize: 17,
+                      fontSize: 16,
                       fontWeight: FontWeight.w800,
-                      color: active.value ? Colors.white : Colors.black87,
+                      color: state.isActive(content)
+                          ? Colors.white : Colors.black87,
                     ),
                   ),
                 ),
                 decoration: BoxDecoration(
-                  color: active.value ? Get.theme.primaryColor : Colors.white,
+                  color: state.isActive(content)
+                      ? Get.theme.primaryColor : Colors.white,
                   border: Border.all(color: Colors.black12),
                   borderRadius: BorderRadius.circular(30),
                 ),
-              );
-            }),
-          ),
+              ),
+            );
+          }),
         ),
       )
     );

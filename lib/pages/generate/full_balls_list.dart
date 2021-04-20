@@ -4,7 +4,7 @@ import 'balls_area.dart';
 class GenerateFullBallsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SliverList(delegate: SliverChildListDelegate([
+    return Column(children: [
       const SizedBox(height: 16),
       const Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
@@ -20,7 +20,11 @@ class GenerateFullBallsList extends StatelessWidget {
       const SizedBox(height: 16),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 26),
-        child: BallsArea(35),
+        child: BallsArea(
+          width: 1 / 8,
+          length: 35,
+          maxActiveLength: 5,
+        ),
       ),
       const SizedBox(height: 32),
       const Padding(
@@ -37,8 +41,12 @@ class GenerateFullBallsList extends StatelessWidget {
       const SizedBox(height: 16),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 26),
-        child: BallsArea(12),
+        child: BallsArea(
+          width: 1 / 8,
+          length: 12,
+          maxActiveLength: 2,
+        ),
       ),
-    ]));
+    ]);
   }
 }

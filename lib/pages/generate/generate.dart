@@ -8,14 +8,30 @@ class GeneratePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = PageController(initialPage: 0);
+
     return Stack(
       children: [
-        CustomScrollView(slivers: [
-          // AppBar
-          GenerateAppBar(),
-          // List when show all balls
-          GenerateFullBallsList(),
-        ]),
+        NestedScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          headerSliverBuilder: (_, __) => [
+            GenerateAppBar(),
+          ],
+          body: PageView(
+            controller: controller,
+            scrollDirection: Axis.horizontal,
+            physics: const AlwaysScrollableScrollPhysics(),
+            children: [
+              GenerateFullBallsList(),
+              const Center(
+                child: Text('Second Page'),
+              ),
+              const Center(
+                child: Text('Third Page'),
+              )
+            ],
+          ),
+        ),
         Positioned(
           bottom: 0,
           width: Get.width,
