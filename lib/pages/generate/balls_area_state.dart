@@ -32,7 +32,6 @@ class BallsAreaState extends GetxController {
     } else {
       add(value);
     }
-    print(actives);
   }
   void replace(List<int> values) {
     actives.clear();

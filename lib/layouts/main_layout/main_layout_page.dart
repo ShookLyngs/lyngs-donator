@@ -46,12 +46,25 @@ class MainLayoutPage extends GetxWidget<MainLayoutState> {
             backwardsCompatibility: true,
           ),
         ),
-        body: Obx(() => bodies[state.active.value]),
-        bottomNavigationBar: Obx(() => BottomNavigationBar(
+        body: PageView(
+          children: bodies,
+          physics: const BouncingScrollPhysics(),
+          controller: state.pageController,
+          onPageChanged: (newValue) {
+            state.active.value = newValue;
+          },
+        ),
+        /*bottomNavigationBar: Obx(() => BottomNavigationBar(
           items: items.map(mapNavigationBarItem).toList(),
           currentIndex: state.active.value,
-          onTap: (i) => state.active.value = i,
-        )),
+          onTap: (newValue) {
+            state.active.value = newValue;
+            state.pageController.animateToPage(newValue,
+              duration: const Duration(milliseconds: 250),
+              curve: Curves.ease,
+            );
+          },
+        )),*/
       ),
     );
   }
@@ -59,6 +72,7 @@ class MainLayoutPage extends GetxWidget<MainLayoutState> {
 
 class MainLayoutState extends GetxController {
   final active = 0.obs;
+  final PageController pageController = PageController();
 }
 
 class NavigationItem {

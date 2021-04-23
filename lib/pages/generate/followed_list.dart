@@ -1,11 +1,11 @@
-import 'package:lyngs_donator/pages/generate/balls_area.dart';
-
 import '../../main.dart';
+import 'balls_area.dart';
 
 class GenerateFollowedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SliverList(delegate: SliverChildListDelegate([
+    return SliverList(
+        delegate: SliverChildListDelegate([
       const SizedBox(height: 32),
       Container(
         padding: const EdgeInsets.all(30),
@@ -19,47 +19,47 @@ class GenerateFollowedList extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('待开奖',
+            const Text(
+              '待开奖',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ),
             ),
-
             const SizedBox(height: 32),
-
             Container(
               decoration: BoxDecoration(
                 color: Get.theme.backgroundColor,
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
               ),
-              child: Container(child: BallsArea(
+              child: Container(
+                  child: BallsArea(
                 width: 1 / 8,
                 length: 8,
                 maxActiveLength: 1,
               )),
             ),
             const SizedBox(height: 32),
-
             Container(
               decoration: BoxDecoration(
                 color: Get.theme.backgroundColor,
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
               ),
-              child: Container(child: BallsArea(
+              child: Container(
+                  child: BallsArea(
                 width: 1 / 8,
                 length: 8,
                 maxActiveLength: 1,
               )),
             ),
             const SizedBox(height: 32),
-
             Container(
               decoration: BoxDecoration(
                 color: Get.theme.backgroundColor,
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
               ),
-              child: Container(child: BallsArea(
+              child: Container(
+                  child: BallsArea(
                 width: 1 / 8,
                 length: 8,
                 maxActiveLength: 1,
