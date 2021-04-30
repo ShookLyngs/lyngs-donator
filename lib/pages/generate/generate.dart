@@ -1,3 +1,6 @@
+import 'package:lyngs_donator/pages/generate/page_state.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+
 import '../../main.dart';
 import 'app_bar.dart';
 import 'followed_app_bar.dart';
@@ -10,45 +13,41 @@ class GeneratePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var windowHeight = Get.height;
-    var statusBarHeight = Get.statusBarHeight / Get.pixelRatio;
-    var minHeight = (kToolbarHeight + statusBarHeight) / Get.height;
+    Get.lazyPut(() => GeneratePageState());
+    var state = Get.find<GeneratePageState>();
 
-    return Stack(
-      children: [
-        CustomScrollView(
-          physics: const BouncingScrollPhysics(),
-          slivers: [
-            GenerateAppBar(),
-            GenerateFullBallsList(),
-            GenerateFollowedList(),
-          ],
-        ),
-        Container(
-          height: windowHeight,
-          child: DraggableScrollableSheet(
-            initialChildSize: minHeight,
-            minChildSize: minHeight,
-            maxChildSize: 1,
-            builder: (_context, scrollController) {
-              return LayoutBuilder(builder: (_boxContext, _boxConstraints) {
-                return Container(
-                  color: Colors.white,
-                  child: CustomScrollView(
-                    controller: scrollController,
-                    physics: const BouncingScrollPhysics(),
-                    slivers: [
-                      FollowedAppBar(),
-                      GenerateFullBallsList(),
-                      GenerateFollowedList(),
-                    ],
-                  ),
-                );
-              });
-            },
-          ),
-        ),
-      ],
+    var statusBarHeight = Get.statusBarHeight / Get.pixelRatio;
+    var maxHeight = Get.height - statusBarHeight;
+    var minHeight = kToolbarHeight + statusBarHeight;
+
+    return SlidingUpPanel(
+      onPanelSlide: (position) {
+        state.panelPosition.value = position;
+      },
+      maxHeight: maxHeight,
+      minHeight: minHeight,
+      backdropEnabled: true,
+      backdropOpacity: 0.3,
+      borderRadius: const BorderRadius.only(
+        topLeft: Radius.circular(16),
+        topRight: Radius.circular(16),
+      ),
+      collapsed: Row(
+        children: [
+          TextButton(onPressed: () {}, child: const Text('Add'))
+        ],
+      ),
+      panel: const Center(
+        child: Text('This is the sliding Widget'),
+      ),
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          GenerateAppBar(),
+          GenerateFullBallsList(),
+          GenerateFollowedList(),
+        ],
+      ),
     );
   }
 }
