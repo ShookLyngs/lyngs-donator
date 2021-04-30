@@ -46,14 +46,15 @@ class MainLayoutPage extends GetxWidget<MainLayoutState> {
             backwardsCompatibility: true,
           ),
         ),
-        body: PageView(
+        body: bodies[state.active.value],
+        /*body: PageView(
           children: bodies,
           physics: const BouncingScrollPhysics(),
           controller: state.pageController,
           onPageChanged: (newValue) {
             state.active.value = newValue;
           },
-        ),
+        ),*/
         /*bottomNavigationBar: Obx(() => BottomNavigationBar(
           items: items.map(mapNavigationBarItem).toList(),
           currentIndex: state.active.value,

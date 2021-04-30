@@ -48,10 +48,6 @@ class GenerateFullBallsList extends StatelessWidget {
           maxActiveLength: 2,
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.all(30),
-        child: Center(child: GenerateFooter()),
-      ),
     ]));
   }
 }
