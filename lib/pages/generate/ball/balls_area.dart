@@ -1,5 +1,5 @@
-import '../../main.dart';
-import 'balls_area_state.dart';
+import '../../../main.dart';
+import './balls_area_state.dart';
 
 class BallsArea extends StatelessWidget {
   final int length;

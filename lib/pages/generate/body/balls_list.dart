@@ -1,5 +1,5 @@
-import '../../main.dart';
-import 'balls_area.dart';
+import '../../../main.dart';
+import '../ball/balls_area.dart';
 import 'footer.dart';
 
 class GenerateFullBallsList extends StatelessWidget {

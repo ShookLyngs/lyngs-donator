@@ -1,4 +1,4 @@
-import '../../main.dart';
+import '../../../main.dart';
 
 class BallsAreaState extends GetxController {
   final items = <BallData>[].obs;

@@ -1,5 +1,5 @@
 import 'dart:ui';
-import '../../main.dart';
+import '../../../main.dart';
 
 class GenerateAppBar extends StatelessWidget {
   @override

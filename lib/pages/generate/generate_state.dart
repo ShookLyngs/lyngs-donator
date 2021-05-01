@@ -5,6 +5,10 @@ class GeneratePageState extends GetxController {
   final front = <int>[].obs;
   final back = <int>[].obs;
 
+  final wrapBorderRadius = const BorderRadius.vertical(
+    top: Radius.circular(30),
+  );
+
   // Panel
   final RxDouble panelPosition = RxDouble(0);
 
