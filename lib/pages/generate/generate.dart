@@ -31,9 +31,8 @@ class GeneratePage extends StatelessWidget {
       minHeight: minHeight,
       backdropEnabled: true,
       backdropOpacity: 0.3,
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(16),
-        topRight: Radius.circular(16),
+      borderRadius: const BorderRadius.vertical(
+        top: Radius.circular(16),
       ),
       body: Stack(
         children: [
@@ -66,100 +65,103 @@ class GeneratePage extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(
-              top: Radius.circular(16)
+            top: Radius.circular(16),
           ),
         ),
         child: const Center(child: Text('------')),
       ),
       panelBuilder: (scrollController) {
-        return Stack(
-          children: [
-            ListView(
-              controller: scrollController,
-              children: [
-                const SizedBox(height: 80),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-              ],
-            ),
-            Positioned(
-              top: 0,
-              width: Get.width,
-              child: SizedBox(
-                height: 80,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(16)
-                    ),
+        return ClipRRect(
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+          child: Stack(
+            children: [
+              ListView(
+                controller: scrollController,
+                children: [
+                  const SizedBox(height: 80),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
                   ),
-                  child: Row(children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: Row(children: [
-                        const Icon(Icons.arrow_back),
-                        const SizedBox(width: 10),
-                        const Text('Title',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                          )
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('ListTile Title'),
+                    subtitle: Text('ListTile SubTitle'),
+                  ),
+                ],
+              ),
+              Positioned(
+                top: 0,
+                width: Get.width,
+                child: SizedBox(
+                  height: 80,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    color: Colors.white,
+                    child: Row(children: [
+                      TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                         ),
-                      ]),
-                    )
-                  ]),
+                        child: Row(children: [
+                          const Icon(Icons.arrow_back),
+                          const SizedBox(width: 10),
+                          const Text('Title',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                            )
+                          ),
+                        ]),
+                      )
+                    ]),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );
