@@ -4,8 +4,8 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../../main.dart';
 import 'generate_body.dart';
-import 'generate_collapsed.dart';
 import 'generate_panel.dart';
+import 'generate_panel_collapsed.dart';
 import 'generate_state.dart';
 
 class GeneratePage extends StatelessWidget {
@@ -20,7 +20,7 @@ class GeneratePage extends StatelessWidget {
     // Heights
     var statusBarHeight = Get.statusBarHeight / Get.pixelRatio;
     var maxHeight = Get.height - statusBarHeight;
-    var minHeight = kToolbarHeight + statusBarHeight;
+    var minHeight = state.panelMinHeight;
 
     return SlidingUpPanel(
       // Configurations
@@ -31,7 +31,7 @@ class GeneratePage extends StatelessWidget {
       borderRadius: state.wrapBorderRadius,
       // Widgets
       body: GenerateBody(),
-      collapsed: GenerateCollapsed(),
+      collapsed: GeneratePanelCollapsed(),
       panelBuilder: (scrollController) => GeneratePanel(
         scrollController: scrollController,
       ),

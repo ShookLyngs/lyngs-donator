@@ -1,8 +1,8 @@
 import '../../../main.dart';
 import '../ball/balls_area.dart';
-import 'footer.dart';
+import '../generate_state.dart';
 
-class GenerateFullBallsList extends StatelessWidget {
+class GenerateFullBallsList extends GetxWidget<GeneratePageState> {
   @override
   Widget build(BuildContext context) {
     return SliverList(delegate: SliverChildListDelegate([
@@ -48,6 +48,10 @@ class GenerateFullBallsList extends StatelessWidget {
           maxActiveLength: 2,
         ),
       ),
+
+      // Fixed padding bottom, for cover the positioned panel.
+      SizedBox(height: state.panelMinHeight),
+
     ]));
   }
 }
