@@ -44,14 +44,14 @@ class GeneratePage extends StatelessWidget {
 
   // If any widget needs to stick with panel's position,
   // use this function to make any positioned widget follow the panel.
-  // * This suits the `bottom` property in Positioned widget.
-  double calculatePosition(double min, double max, double position) {
+  // * This result fits the `bottom` param in Positioned widget.
+  double calculateBottomPosition(double min, double max, double position) {
     return (max - min) * position + min;
   }
 
   // Use this to make your widget Fade out two times faster,
   // based on move percentage of panel.
-  double calculateOpacity(double position) {
+  double calculateFasterOpacity(double position) {
     return max(1 - (2 * position), 0);
   }
 }
