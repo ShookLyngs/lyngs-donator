@@ -1,6 +1,6 @@
 import '../../main.dart';
 
-class GenerateCollapsed extends StatelessWidget {
+class GeneratePanelCollapsed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
