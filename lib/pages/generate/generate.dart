@@ -148,7 +148,8 @@ class GeneratePage extends StatelessWidget {
                         child: Row(children: [
                           const Icon(Icons.arrow_back),
                           const SizedBox(width: 10),
-                          const Text('Title',
+                          const Text(
+                            '我的关注',
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
