@@ -13,6 +13,7 @@ class App extends StatelessWidget {
 
     return GetMaterialApp(
       theme: lightTheme,
+      darkTheme: darkTheme,
       home: MainLayout(),
     );
   }
@@ -41,5 +42,13 @@ class App extends StatelessWidget {
     return theme.copyWith(
       backgroundColor: const Color(0xfff9f9f9),
     );
+  }
+
+  ThemeData get darkTheme {
+    final theme = ThemeData(
+      brightness: Brightness.dark,
+    );
+
+    return theme.copyWith();
   }
 }
