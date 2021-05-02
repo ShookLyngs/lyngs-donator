@@ -35,6 +35,9 @@ ThemeData get lightTheme {
     dividerColor: Colors.grey[300],
 
     textTheme: theme.textTheme.copyWith(
+      headline1: theme.textTheme.headline1!.copyWith(
+        color: const Color(0xff222222),
+      ),
       caption: theme.textTheme.caption!.copyWith(
         color: const Color(0xff979797),
       ),
@@ -63,6 +66,9 @@ ThemeData get darkTheme {
     cardColor: const Color(0xff424242),
 
     textTheme: theme.textTheme.copyWith(
+      headline1: theme.textTheme.headline1!.copyWith(
+        color: const Color(0xffffffff),
+      ),
       caption: theme.textTheme.caption!.copyWith(
         color: const Color(0xff6d6d6d),
       ),

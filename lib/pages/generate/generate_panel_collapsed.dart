@@ -191,12 +191,18 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
             const SizedBox(height: 6),
 
             // Bottom indicator
-            const Center(child: SizedBox(
+            Center(child: SizedBox(
               height: 30,
               width: 30,
               child: CircleAvatar(
-                backgroundColor: Colors.black12,
-                child: Icon(Icons.expand_more),
+                backgroundColor: Theme.of(context).backgroundColor,
+                child: IconButton(
+                  icon: const Icon(Icons.expand_less),
+                  padding: const EdgeInsets.all(0),
+                  onPressed: () {
+                    state.panelController.open();
+                  },
+                ),
               ),
             )),
 
