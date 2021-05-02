@@ -28,6 +28,12 @@ class GeneratePage extends StatelessWidget {
       minHeight: minHeight,
       backdropEnabled: true,
       backdropOpacity: 0.3,
+      boxShadow: const [
+        BoxShadow(
+          blurRadius: 30.0,
+          color: Color.fromRGBO(0, 0, 0, 0.10),
+        ),
+      ],
       borderRadius: state.wrapBorderRadius,
       controller: state.panelController,
       // Widgets

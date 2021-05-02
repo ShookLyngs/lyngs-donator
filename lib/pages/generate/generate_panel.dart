@@ -14,59 +14,62 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
       borderRadius: state.wrapBorderRadius,
       child: Stack(
         children: [
-          ListView(
-            controller: scrollController,
-            children: [
-              const SizedBox(height: 80),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-              const ListTile(
-                title: Text('ListTile Title'),
-                subtitle: Text('ListTile SubTitle'),
-              ),
-            ],
+          Container(
+            color: Theme.of(context).cardColor,
+            child: ListView(
+              controller: scrollController,
+              children: [
+                const SizedBox(height: 80),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+                const ListTile(
+                  title: Text('ListTile Title'),
+                  subtitle: Text('ListTile SubTitle'),
+                ),
+              ],
+            ),
           ),
           Positioned(
             top: 0,
@@ -75,7 +78,7 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
               height: 80,
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                color: Colors.white,
+                color: Theme.of(context).cardColor,
                 child: Row(children: [
                   TextButton(
                     onPressed: () {},
@@ -87,12 +90,12 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
                     child: Row(children: [
                       const Icon(Icons.arrow_back),
                       const SizedBox(width: 10),
-                      const Text(
-                          '我的关注',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                          )
+                      Text(
+                        '我的关注',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Theme.of(context).textTheme.headline1!.color,
+                        ),
                       ),
                     ]),
                   )

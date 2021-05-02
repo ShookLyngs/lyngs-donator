@@ -12,8 +12,11 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
         left: false,
         right: false,
         child: Container(
-          color: Colors.white,
           padding: const EdgeInsets.symmetric(horizontal: 20),
+          decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+            borderRadius: state.wrapBorderRadius,
+          ),
           child: Column(children: [
             // Indicator
             const SizedBox(height: 8),
@@ -23,9 +26,9 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
                 width: 60,
                 height: 6,
                 child: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.black26,
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).dividerColor,
+                    borderRadius: const BorderRadius.all(Radius.circular(6)),
                   ),
                 ),
               ))
@@ -40,9 +43,18 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
                   child: ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(14)),
                     child: Container(
-                      color: Colors.black12,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).backgroundColor,
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(14),
+                        ),
+                        border: Border.all(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
                       child: ListView(
                         scrollDirection: Axis.horizontal,
+                        physics: const BouncingScrollPhysics(),
                         children: [
                           const SizedBox(width: 12),
                           const Center(child: Padding(
@@ -56,6 +68,47 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
                           const Center(child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 2),
                             child: Text('12'),
+                          )),
+                          const Center(child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2),
+                            child: Text('12'),
+                          )),
+                          const Center(child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2),
+                            child: Text('12'),
+                          )),
+                          const Center(child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2),
+                            child: Text('12'),
+                          )),
+                          const Center(child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2),
+                            child: Text('12'),
+                          )),
+                          const Center(child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2),
+                            child: Text('12'),
+                          )),
+                          const Center(child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2),
+                            child: Text('12'),
+                          )),
+                          const Center(child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2),
+                            child: Text('12'),
+                          )),
+                          const Center(child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2),
+                            child: Text('12'),
+                          )),
+                          Center(child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: Text(
+                              '/',
+                              style: TextStyle(
+                                color: Theme.of(context).dividerColor,
+                              ),
+                            ),
                           )),
                           const Center(child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 2),
@@ -90,7 +143,7 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Icon(Icons.check_circle, size: 22),
+                      const Icon(Icons.done, size: 22),
                     ],
                   ),
                 ),
@@ -103,7 +156,12 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
             Row(children: [
               const Text('21048 期'),
               const SizedBox(width: 6),
-              const Text('/'),
+              Text(
+                '/',
+                style: TextStyle(
+                  color: Theme.of(context).dividerColor,
+                ),
+              ),
               const SizedBox(width: 6),
               const Text('单式'),
 
@@ -111,9 +169,21 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
 
               const Text('1倍'),
               const SizedBox(width: 6),
-              const Text('/'),
+              Text(
+                '/',
+                style: TextStyle(
+                  color: Theme.of(context).dividerColor,
+                ),
+              ),
               const SizedBox(width: 6),
-              const Text('2 RMB'),
+              Text(
+                '2 RMB',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: Theme.of(context).primaryColorDark,
+                ),
+              ),
             ]),
 
 

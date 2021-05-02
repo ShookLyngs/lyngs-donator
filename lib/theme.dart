@@ -28,8 +28,8 @@ ThemeData get lightTheme {
     primaryColorLight: primary[400],
 
     scaffoldBackgroundColor: const Color(0xfff9f9f9),
-    backgroundColor: const Color(0xffffffff),
     bottomAppBarColor: const Color(0xffffffff),
+    backgroundColor: const Color(0xfff6f6f6),
     cardColor: const Color(0xffffffff),
 
     dividerColor: Colors.grey[300],
@@ -56,6 +56,11 @@ ThemeData get darkTheme {
     primaryColor: primary[500],
     primaryColorDark: primary[600],
     primaryColorLight: primary[400],
+
+    scaffoldBackgroundColor: const Color(0xff2e2e2e),
+    bottomAppBarColor: const Color(0xff424242),
+    backgroundColor: const Color(0xff383838),
+    cardColor: const Color(0xff424242),
 
     textTheme: theme.textTheme.copyWith(
       caption: theme.textTheme.caption!.copyWith(
