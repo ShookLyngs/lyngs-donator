@@ -1,3 +1,5 @@
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+
 import '../../main.dart';
 
 class GeneratePageState extends GetxController {
@@ -7,10 +9,11 @@ class GeneratePageState extends GetxController {
 
   // Border radius for all outer wrappers
   final wrapBorderRadius = const BorderRadius.vertical(
-    top: Radius.circular(30),
+    top: Radius.circular(24),
   );
 
   // Panel min height
+  final panelController = PanelController();
   final panelMinHeight = 170.0;
 
   // Panel

@@ -29,6 +29,7 @@ class GeneratePage extends StatelessWidget {
       backdropEnabled: true,
       backdropOpacity: 0.3,
       borderRadius: state.wrapBorderRadius,
+      controller: state.panelController,
       // Widgets
       body: GenerateBody(),
       collapsed: GeneratePanelCollapsed(),
