@@ -18,6 +18,7 @@ class BallsArea extends StatelessWidget {
     this.tag = tag ?? '${(DateTime.now().millisecondsSinceEpoch)}';
 
     // Create state for current widget only
+    // * BUG: tag will change during widget rebuild
     Get.put(
       BallsAreaState(
         initialValue: initialValue,
@@ -61,6 +62,8 @@ class Ball extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var borderRadius = BorderRadius.circular(30);
+
     return FractionallySizedBox(
       widthFactor: width,
       child: AspectRatio(
@@ -68,26 +71,33 @@ class Ball extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(4),
           child: Obx(() {
+            var backgroundColor = state.isActive(content)
+              ? Theme.of(context).primaryColor
+              : Theme.of(context).cardColor;
+            var textColor = state.isActive(content)
+              ? Theme.of(context).primaryTextTheme.button!.color
+              : Theme.of(context).textTheme.bodyText2!.color;
+            var borderColor = state.isActive(content)
+              ? Theme.of(context).primaryColor
+              : Theme.of(context).dividerColor;
+
             return InkWell(
-              onTap: state.isActive(content)
-                  ? () => state.toggle(content) : null,
-              borderRadius: BorderRadius.circular(30),
+              onTap: () => state.toggle(content),
+              borderRadius: borderRadius,
               child: Ink(
                 child: Center(
                   child: Text('$content',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w800,
-                      color: state.isActive(content)
-                          ? Colors.white : Colors.black87,
+                      color: textColor,
                     ),
                   ),
                 ),
                 decoration: BoxDecoration(
-                  color: state.isActive(content)
-                      ? Get.theme.primaryColor : Colors.white,
-                  border: Border.all(color: Colors.black12),
-                  borderRadius: BorderRadius.circular(30),
+                  color: backgroundColor,
+                  border: Border.all(color: borderColor),
+                  borderRadius: borderRadius,
                 ),
               ),
             );

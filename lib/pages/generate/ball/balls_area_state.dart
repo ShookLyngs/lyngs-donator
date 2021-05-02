@@ -27,6 +27,7 @@ class BallsAreaState extends GetxController {
     actives.remove(value);
   }
   void toggle(int value) {
+    print('toggle value, $value');
     if (isActive(value)) {
       remove(value);
     } else {

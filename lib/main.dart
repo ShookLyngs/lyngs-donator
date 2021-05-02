@@ -9,6 +9,7 @@ export 'package:get/get.dart' hide Response, HeaderValue, MultipartFile, FormDat
 export 'package:intl/intl.dart' hide TextDirection;
 
 // project export
+export 'theme.dart';
 export 'util/util.dart';
 export 'widgets/widgets.dart';
 

@@ -11,10 +11,10 @@ class GenerateAppBar extends StatelessWidget {
           child: FlexibleSpaceBar(
             titlePadding: const EdgeInsets.all(16),
             title: Row(children: [
-              const Text(
+              Text(
                 '一张彩票',
                 style: TextStyle(
-                  color: Colors.black87,
+                  color: Theme.of(context).textTheme.bodyText1!.color,
                   fontWeight: FontWeight.w800,
                 ),
               ),
@@ -39,7 +39,7 @@ class GenerateAppBar extends StatelessWidget {
       pinned: true,
       expandedHeight: 100,
       shadowColor: Colors.transparent,
-      backgroundColor: Get.theme.backgroundColor.withAlpha(20),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor.withAlpha(20),
     );
   }
 }

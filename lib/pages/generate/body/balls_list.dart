@@ -7,12 +7,11 @@ class GenerateFullBallsList extends GetxWidget<GeneratePageState> {
   Widget build(BuildContext context) {
     return SliverList(delegate: SliverChildListDelegate([
       const SizedBox(height: 16),
-      const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Text(
           '前区',
-          style: TextStyle(
-            color: Colors.black45,
+          style: Theme.of(context).textTheme.caption!.copyWith(
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -28,12 +27,11 @@ class GenerateFullBallsList extends GetxWidget<GeneratePageState> {
         ),
       ),
       const SizedBox(height: 32),
-      const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Text(
           '后区',
-          style: TextStyle(
-            color: Colors.black45,
+          style: Theme.of(context).textTheme.caption!.copyWith(
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),

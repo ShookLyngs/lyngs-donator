@@ -1,4 +1,5 @@
 import '../../main.dart';
+import '../../theme.dart';
 import 'generate_state.dart';
 
 class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
@@ -75,7 +76,10 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
               SizedBox(
                 height: 40,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.changeTheme(Get.isDarkMode ? lightTheme : darkTheme);
+                    print('change theme type, ${Get.isDarkMode}');
+                  },
                   style: ElevatedButton.styleFrom(
                     shadowColor: Colors.transparent,
                     minimumSize: const Size.fromWidth(100),
