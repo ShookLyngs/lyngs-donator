@@ -84,7 +84,7 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
                     onPressed: () {},
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: state.innerBorderRadius,
                       ),
                     ),
                     child: Row(children: [

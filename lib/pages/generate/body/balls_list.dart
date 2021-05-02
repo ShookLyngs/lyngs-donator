@@ -48,7 +48,7 @@ class GenerateFullBallsList extends GetxWidget<GeneratePageState> {
       ),
 
       // Fixed padding bottom, for cover the positioned panel.
-      SizedBox(height: state.panelMinHeight),
+      SizedBox(height: state.panelMinHeight + 30),
 
     ]));
   }
