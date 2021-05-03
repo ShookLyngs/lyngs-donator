@@ -1,3 +1,5 @@
+import 'package:flutter_sticky_header/flutter_sticky_header.dart';
+
 import '../../main.dart';
 import 'generate_state.dart';
 
@@ -14,87 +16,69 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
       borderRadius: state.wrapBorderRadius,
       child: Container(
         color: Theme.of(context).cardColor,
-        child: ListView(
+        child: CustomScrollView(
           controller: scrollController,
-          children: [
-            SizedBox(
-              height: 80,
-              child: Container(
-                // padding: const EdgeInsets.symmetric(horizontal: 16),
-                color: Theme.of(context).cardColor,
-                child: Row(children: [
-                  TextButton(
-                    onPressed: () {
-                      state.panelController.close();
-                    },
-                    style: TextButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(state.innerBorderRadius),
-                      ),
-                    ),
-                    child: Row(children: [
-                      const Icon(Icons.expand_more),
-                      const SizedBox(width: 10),
-                      Text(
-                        '我的关注',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Theme.of(context).textTheme.headline1!.color,
-                        ),
-                      ),
-                    ]),
+          slivers: [
+            SliverStickyHeader(
+              header: Container(
+                height: 80,
+                child: TextButton(
+                  onPressed: () {  },
+                  child: const Text('我的关注'),
+                ),
+              ),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
+                  ),
+                  const ListTile(
+                    title: Text('Title'),
+                    subtitle: Text('SubTitle'),
                   ),
                 ]),
               ),
-            ),
-
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
-            ),
-            const ListTile(
-              title: Text('ListTile Title'),
-              subtitle: Text('ListTile SubTitle'),
             ),
           ],
         ),
