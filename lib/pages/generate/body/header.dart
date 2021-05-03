@@ -1,7 +1,9 @@
 import 'dart:ui';
-import '../../../main.dart';
 
-class GenerateAppBar extends StatelessWidget {
+import '../../../main.dart';
+import '../generate_state.dart';
+
+class GenerateAppBar extends GetxWidget<GeneratePageState> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -23,7 +25,13 @@ class GenerateAppBar extends StatelessWidget {
                 height: 30,
                 width: 30,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (state.panelController.isPanelShown) {
+                      state.panelController.hide();
+                    } else {
+                      state.panelController.show();
+                    }
+                  },
                   child: const Icon(Icons.swap_horiz),
                   style: TextButton.styleFrom(
                     primary: Get.theme.primaryColor,

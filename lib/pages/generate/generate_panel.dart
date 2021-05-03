@@ -12,76 +12,21 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: state.wrapBorderRadius,
-      child: Stack(
-        children: [
-          Container(
-            color: Theme.of(context).cardColor,
-            child: ListView(
-              controller: scrollController,
-              children: [
-                const SizedBox(height: 80),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-                const ListTile(
-                  title: Text('ListTile Title'),
-                  subtitle: Text('ListTile SubTitle'),
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            top: 0,
-            width: Get.width,
-            child: SizedBox(
+      child: Container(
+        color: Theme.of(context).cardColor,
+        child: ListView(
+          controller: scrollController,
+          children: [
+            SizedBox(
               height: 80,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                // padding: const EdgeInsets.symmetric(horizontal: 16),
                 color: Theme.of(context).cardColor,
                 child: Row(children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      state.panelController.close();
+                    },
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(state.innerBorderRadius),
@@ -98,12 +43,61 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
                         ),
                       ),
                     ]),
-                  )
+                  ),
                 ]),
               ),
             ),
-          ),
-        ],
+
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+            const ListTile(
+              title: Text('ListTile Title'),
+              subtitle: Text('ListTile SubTitle'),
+            ),
+          ],
+        ),
       ),
     );
   }

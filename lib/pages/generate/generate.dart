@@ -19,7 +19,7 @@ class GeneratePage extends StatelessWidget {
 
     // Heights
     var statusBarHeight = Get.statusBarHeight / Get.pixelRatio;
-    var maxHeight = Get.height - statusBarHeight;
+    var maxHeight = context.height - statusBarHeight;
     var minHeight = state.panelMinHeight;
 
     return SlidingUpPanel(
@@ -34,6 +34,7 @@ class GeneratePage extends StatelessWidget {
           color: Color.fromRGBO(0, 0, 0, 0.10),
         ),
       ],
+      padding: EdgeInsets.zero,
       borderRadius: state.wrapBorderRadius,
       controller: state.panelController,
       // Widgets
@@ -45,6 +46,9 @@ class GeneratePage extends StatelessWidget {
       // Events
       onPanelSlide: (position) {
         state.panelPosition.value = position;
+      },
+      onPanelClosed: () {
+        // _!.refreshPage();
       },
     );
   }
