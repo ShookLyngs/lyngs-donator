@@ -41,11 +41,11 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
                 child: SizedBox(
                   height: 40,
                   child: ClipRRect(
-                    borderRadius: state.innerBorderRadius,
+                    borderRadius: BorderRadius.all(state.innerBorderRadius),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).backgroundColor,
-                        borderRadius: state.innerBorderRadius,
+                        borderRadius: BorderRadius.all(state.innerBorderRadius),
                         border: Border.all(
                           color: Theme.of(context).dividerColor,
                         ),
@@ -107,29 +107,33 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
                 height: 40,
                 width: 120,
                 child: ClipRRect(
-                  borderRadius: state.innerBorderRadius,
+                  borderRadius: BorderRadius.all(state.innerBorderRadius),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).backgroundColor,
-                      borderRadius: state.innerBorderRadius,
+                      borderRadius: BorderRadius.all(state.innerBorderRadius),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
                       ),
                     ),
                     child: Row(
                       children: [
-                        Material(
-                          color: Colors.transparent,
-                          borderRadius: state.innerBorderRadius,
-                          child: SizedBox(
-                            width: 34,
-                            child: IconButton(
-                              onPressed: () {},
-                              padding: const EdgeInsets.all(0),
-                              icon: Icon(
-                                Icons.remove,
-                                size: 18,
-                                color: Theme.of(context).primaryColor,
+                        ClipRRect(
+                          borderRadius: BorderRadius.horizontal(
+                            left: state.innerBorderRadius,
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: SizedBox(
+                              width: 34,
+                              child: IconButton(
+                                onPressed: () {},
+                                padding: const EdgeInsets.all(0),
+                                icon: Icon(
+                                  Icons.remove,
+                                  size: 18,
+                                  color: Theme.of(context).primaryColor,
+                                ),
                               ),
                             ),
                           ),
@@ -144,18 +148,22 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
 
                         const Spacer(),
 
-                        Material(
-                          color: Colors.transparent,
-                          borderRadius: state.innerBorderRadius,
-                          child: SizedBox(
-                            width: 34,
-                            child: IconButton(
-                              onPressed: () {},
-                              padding: const EdgeInsets.all(0),
-                              icon: Icon(
-                                Icons.add,
-                                size: 18,
-                                color: Theme.of(context).primaryColor,
+                        ClipRRect(
+                          borderRadius: BorderRadius.horizontal(
+                            right: state.innerBorderRadius,
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: SizedBox(
+                              width: 34,
+                              child: IconButton(
+                                onPressed: () {},
+                                padding: const EdgeInsets.all(0),
+                                icon: Icon(
+                                  Icons.add,
+                                  size: 18,
+                                  color: Theme.of(context).primaryColor,
+                                ),
                               ),
                             ),
                           ),
@@ -200,7 +208,7 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
                   shadowColor: Colors.transparent,
                   minimumSize: const Size.fromWidth(100),
                   shape: RoundedRectangleBorder(
-                    borderRadius: state.innerBorderRadius,
+                    borderRadius: BorderRadius.all(state.innerBorderRadius),
                   ),
                 ),
                 child: Row(

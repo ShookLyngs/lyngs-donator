@@ -11,9 +11,7 @@ class GeneratePageState extends GetxController {
   final wrapBorderRadius = const BorderRadius.vertical(
     top: Radius.circular(24),
   );
-  final innerBorderRadius = const BorderRadius.all(
-    Radius.circular(10),
-  );
+  final innerBorderRadius = const Radius.circular(10);
 
   // Panel min height
   final panelController = PanelController();

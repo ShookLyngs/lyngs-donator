@@ -84,11 +84,11 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
                     onPressed: () {},
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: state.innerBorderRadius,
+                        borderRadius: BorderRadius.all(state.innerBorderRadius),
                       ),
                     ),
                     child: Row(children: [
-                      const Icon(Icons.arrow_back),
+                      const Icon(Icons.expand_more),
                       const SizedBox(width: 10),
                       Text(
                         '我的关注',
