@@ -8,8 +8,13 @@ class MainLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      child: const Scaffold(
-        body: MainLayoutPage(),
+      child: GestureDetector(
+        onTapDown: (_) {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: const Scaffold(
+          body: MainLayoutPage(),
+        ),
       ),
       onWillPop: () async {
         final now = DateTime.now();

@@ -1,6 +1,7 @@
 import '../../main.dart';
 import '../../theme.dart';
 import 'generate_state.dart';
+import 'panel_collapsed/number_box.dart';
 
 class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
   @override
@@ -106,72 +107,7 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
               SizedBox(
                 height: 40,
                 width: 120,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.all(state.innerBorderRadius),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).backgroundColor,
-                      borderRadius: BorderRadius.all(state.innerBorderRadius),
-                      border: Border.all(
-                        color: Theme.of(context).dividerColor,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.horizontal(
-                            left: state.innerBorderRadius,
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: SizedBox(
-                              width: 34,
-                              child: IconButton(
-                                onPressed: () {},
-                                padding: const EdgeInsets.all(0),
-                                icon: Icon(
-                                  Icons.remove,
-                                  size: 18,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        const Spacer(),
-
-                        const Center(child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 2),
-                          child: Text('1 倍'),
-                        )),
-
-                        const Spacer(),
-
-                        ClipRRect(
-                          borderRadius: BorderRadius.horizontal(
-                            right: state.innerBorderRadius,
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: SizedBox(
-                              width: 34,
-                              child: IconButton(
-                                onPressed: () {},
-                                padding: const EdgeInsets.all(0),
-                                icon: Icon(
-                                  Icons.add,
-                                  size: 18,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                child: NumberBox(),
               ),
             ]),
 
@@ -179,6 +115,23 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
 
             // Information display
             Row(children: [
+              SizedBox(
+                width: 20,
+                child: Center(
+                  child: SizedBox(
+                    width: 8,
+                    height: 8,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               const Text('21048 期'),
               const SizedBox(width: 6),
               Text(
@@ -188,7 +141,9 @@ class GeneratePanelCollapsed extends GetxWidget<GeneratePageState> {
                 ),
               ),
               const SizedBox(width: 6),
-              const Text('单式票'),
+              const Text('单式票',
+                // style: Theme.of(context).textTheme.bodyText1!,
+              ),
 
               const Spacer(),
 

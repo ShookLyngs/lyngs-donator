@@ -37,12 +37,19 @@ ThemeData get lightTheme {
     textTheme: theme.textTheme.copyWith(
       headline1: theme.textTheme.headline1!.copyWith(
         color: const Color(0xff222222),
+        height: 1.25,
       ),
       caption: theme.textTheme.caption!.copyWith(
         color: const Color(0xff979797),
+        height: 1.25,
       ),
+      bodyText1: theme.textTheme.bodyText1!.copyWith(
+        height: 1.25,
+      ),
+      // The most common text style
       bodyText2: theme.textTheme.bodyText2!.copyWith(
         color: const Color(0xff505050),
+        height: 1.25,
       ),
     ),
   );
@@ -68,12 +75,18 @@ ThemeData get darkTheme {
     textTheme: theme.textTheme.copyWith(
       headline1: theme.textTheme.headline1!.copyWith(
         color: const Color(0xffffffff),
+        height: 1.25,
       ),
       caption: theme.textTheme.caption!.copyWith(
         color: const Color(0xff6d6d6d),
+        height: 1.25,
+      ),
+      bodyText1: theme.textTheme.bodyText1!.copyWith(
+        height: 1.25,
       ),
       bodyText2: theme.textTheme.bodyText2!.copyWith(
         color: const Color(0xffa1a1a1),
+        height: 1.25,
       ),
     ),
   );
