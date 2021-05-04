@@ -20,65 +20,8 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
           controller: scrollController,
           slivers: [
             SliverStickyHeader(
-              header: Container(
-                height: 80,
-                child: TextButton(
-                  onPressed: () {  },
-                  child: const Text('我的关注'),
-                ),
-              ),
-              sliver: SliverList(
-                delegate: SliverChildListDelegate([
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                  const ListTile(
-                    title: Text('Title'),
-                    subtitle: Text('SubTitle'),
-                  ),
-                ]),
-              ),
+              header: PanelHeader(),
+              sliver: PanelBody(),
             ),
           ],
         ),
@@ -86,3 +29,74 @@ class GeneratePanel extends GetxWidget<GeneratePageState> {
     );
   }
 }
+
+class PanelHeader extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 80,
+      child: TextButton(
+        onPressed: () {  },
+        child: const Text('我的关注'),
+      ),
+    );
+  }
+}
+
+class PanelBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(delegate: SliverChildListDelegate([
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+      const ListTile(
+        title: Text('Title'),
+        subtitle: Text('SubTitle'),
+      ),
+    ]));
+  }
+}
+
+
