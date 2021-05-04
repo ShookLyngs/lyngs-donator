@@ -39,8 +39,10 @@ ThemeData get lightTheme {
         color: const Color(0xff222222),
         height: 1.25,
       ),
-      caption: theme.textTheme.caption!.copyWith(
-        color: const Color(0xff979797),
+      subtitle1: theme.textTheme.subtitle1!.copyWith(
+        height: 1.25,
+      ),
+      subtitle2: theme.textTheme.subtitle2!.copyWith(
         height: 1.25,
       ),
       bodyText1: theme.textTheme.bodyText1!.copyWith(
@@ -49,6 +51,10 @@ ThemeData get lightTheme {
       // The most common text style
       bodyText2: theme.textTheme.bodyText2!.copyWith(
         color: const Color(0xff505050),
+        height: 1.25,
+      ),
+      caption: theme.textTheme.caption!.copyWith(
+        color: const Color(0xff979797),
         height: 1.25,
       ),
     ),
@@ -77,8 +83,10 @@ ThemeData get darkTheme {
         color: const Color(0xffffffff),
         height: 1.25,
       ),
-      caption: theme.textTheme.caption!.copyWith(
-        color: const Color(0xff6d6d6d),
+      subtitle1: theme.textTheme.subtitle1!.copyWith(
+        height: 1.25,
+      ),
+      subtitle2: theme.textTheme.subtitle2!.copyWith(
         height: 1.25,
       ),
       bodyText1: theme.textTheme.bodyText1!.copyWith(
@@ -86,6 +94,10 @@ ThemeData get darkTheme {
       ),
       bodyText2: theme.textTheme.bodyText2!.copyWith(
         color: const Color(0xffa1a1a1),
+        height: 1.25,
+      ),
+      caption: theme.textTheme.caption!.copyWith(
+        color: const Color(0xff6d6d6d),
         height: 1.25,
       ),
     ),
