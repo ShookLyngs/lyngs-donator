@@ -1,7 +1,6 @@
-import 'package:lyngs_donator/pages/generate/panel/group_title.dart';
-
 import '../../../main.dart';
 import '../generate_state.dart';
+import 'group_title.dart';
 
 class PanelRecentStatus extends GetxWidget<GeneratePageState> {
   @override

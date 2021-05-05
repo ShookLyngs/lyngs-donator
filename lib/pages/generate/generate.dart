@@ -40,9 +40,12 @@ class GeneratePage extends StatelessWidget {
       // Widgets
       body: GenerateBody(),
       collapsed: GeneratePanelCollapsed(),
-      panelBuilder: (scrollController) => GeneratePanel(
-        scrollController: scrollController,
-      ),
+      panelBuilder: (scrollController) {
+        state.panelScrollController = scrollController;
+        return GeneratePanel(
+          scrollController: state.panelScrollController,
+        );
+      },
       // Events
       onPanelSlide: (position) {
         state.panelPosition.value = position;

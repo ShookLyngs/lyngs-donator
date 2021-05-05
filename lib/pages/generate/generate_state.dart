@@ -7,10 +7,14 @@ class GeneratePageState extends GetxController {
   final front = <int>[].obs;
   final back = <int>[].obs;
 
+  //
+  ScrollController panelScrollController = ScrollController();
+
   // Border radius for all outer wrappers
   final wrapBorderRadius = const BorderRadius.vertical(
     top: Radius.circular(24),
   );
+  // Border radius for inner widgets
   final innerBorderRadius = const Radius.circular(10);
 
   // Panel min height
