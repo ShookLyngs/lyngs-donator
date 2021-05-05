@@ -17,7 +17,7 @@ class PanelWatchList extends GetxWidget<GeneratePageState> {
         ),
 
         Container(
-          height: 100,
+          height: 120,
           child: ListView(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
@@ -49,17 +49,31 @@ class WatchListCard extends GetxWidget<GeneratePageState> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              '21048 期',
-              style: Theme.of(context).textTheme.headline5!.copyWith(
-                fontWeight: FontWeight.w700,
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
+              children: [
+                Text(
+                  '21048 期',
+                  style: Theme.of(context).textTheme.headline5!.copyWith(
+                    fontWeight: FontWeight.w700,
+                    // color: Theme.of(context).textTheme.bodyText2!.color,
+                  ),
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  '周五',
+                  style: Theme.of(context).textTheme.caption!.copyWith(
+                    fontSize: 14,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 8),
-            const Text(
+            Text(
               '12 12 12 12 12 12 / 12 12',
-              style: TextStyle(
-                fontSize: 16,
+              style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                fontSize: 14,
               ),
             ),
           ],

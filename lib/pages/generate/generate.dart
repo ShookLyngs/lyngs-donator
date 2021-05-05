@@ -39,11 +39,16 @@ class GeneratePage extends StatelessWidget {
       controller: state.panelController,
       // Widgets
       body: GenerateBody(),
-      collapsed: GeneratePanelCollapsed(),
+      collapsed: GestureDetector(
+        onTap: () {},
+        child: GeneratePanelCollapsed(),
+      ),
       panelBuilder: (scrollController) {
-        state.panelScrollController = scrollController;
-        return GeneratePanel(
-          scrollController: state.panelScrollController,
+        return GestureDetector(
+          onTap: () {},
+          child: GeneratePanel(
+            scrollController: scrollController,
+          ),
         );
       },
       // Events
