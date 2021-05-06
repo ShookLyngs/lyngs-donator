@@ -25,6 +25,9 @@ class PanelWatchList extends GetxWidget<GeneratePageState> {
             onHorizontalDragEnd: (_) {
               print('onHorizontalDragEnd');
             },
+            onHorizontalDragUpdate: (_) {
+              print('onHorizontalDragUpdate');
+            },
             child: ListView(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
@@ -48,10 +51,13 @@ class WatchListCard extends GetxWidget<GeneratePageState> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
         decoration: BoxDecoration(
           color: Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.all(state.innerBorderRadius),
+          border: Border.all(
+            color: Theme.of(context).dividerColor,
+          ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -77,7 +83,7 @@ class WatchListCard extends GetxWidget<GeneratePageState> {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
             Text(
               '12 12 12 12 12 12 / 12 12',
               style: Theme.of(context).textTheme.bodyText2!.copyWith(
