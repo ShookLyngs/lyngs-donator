@@ -7,9 +7,6 @@ class GeneratePageState extends GetxController {
   final front = <int>[].obs;
   final back = <int>[].obs;
 
-  //
-  ScrollController panelScrollController = ScrollController();
-
   // Border radius for all outer wrappers
   final wrapBorderRadius = const BorderRadius.vertical(
     top: Radius.circular(24),
@@ -22,7 +19,13 @@ class GeneratePageState extends GetxController {
   final panelMinHeight = 240.0;
 
   // Panel
+  // Panel position
   final RxDouble panelPosition = RxDouble(0);
+  final RxBool panelOpened = false.obs;
+  final RxBool panelVisible = false.obs;
+  final RxBool panelRender = false.obs;
+  // Panel scroller controller
+  ScrollController panelScrollController = ScrollController();
 
   // Give up and regenerate a ticket
   Future refreshTicket() async {}

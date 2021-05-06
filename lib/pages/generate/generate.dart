@@ -24,6 +24,7 @@ class GeneratePage extends StatelessWidget {
 
     return SlidingUpPanel(
       // Configurations
+      color: Theme.of(context).cardColor,
       maxHeight: maxHeight,
       minHeight: minHeight,
       backdropEnabled: true,
@@ -39,24 +40,39 @@ class GeneratePage extends StatelessWidget {
       controller: state.panelController,
       // Widgets
       body: GenerateBody(),
-      collapsed: GestureDetector(
-        onTap: () {},
-        child: GeneratePanelCollapsed(),
-      ),
+      collapsed: Obx(() => Visibility(
+        visible: !state.panelOpened.value || state.panelRender.value,
+        child: AnimatedOpacity(
+          opacity: !state.panelVisible.value ? 1 : 0,
+          duration: const Duration(milliseconds: 250),
+          child: GeneratePanelCollapsed(),
+        ),
+      )),
       panelBuilder: (scrollController) {
-        return GestureDetector(
-          onTap: () {},
-          child: GeneratePanel(
-            scrollController: scrollController,
+        return Obx(() => Visibility(
+          visible: state.panelOpened.value || state.panelRender.value,
+          child: AnimatedOpacity(
+            opacity: state.panelVisible.value ? 1 : 0,
+            duration: const Duration(milliseconds: 250),
+            child: GeneratePanel(
+              scrollController: scrollController,
+            ),
           ),
-        );
+        ));
       },
       // Events
       onPanelSlide: (position) {
+        state.panelRender.value = true;
         state.panelPosition.value = position;
+        state.panelVisible.value = state.panelPosition.value > 0.2;
+      },
+      onPanelOpened: () {
+        state.panelRender.value = false;
+        state.panelOpened.value = true;
       },
       onPanelClosed: () {
-        // _!.refreshPage();
+        state.panelRender.value = false;
+        state.panelOpened.value = false;
       },
     );
   }
