@@ -24,7 +24,6 @@ class GeneratePage extends StatelessWidget {
 
     return SlidingUpPanel(
       // Configurations
-      color: Theme.of(context).cardColor,
       maxHeight: maxHeight,
       minHeight: minHeight,
       backdropEnabled: true,
@@ -37,6 +36,7 @@ class GeneratePage extends StatelessWidget {
       ],
       padding: EdgeInsets.zero,
       borderRadius: state.wrapBorderRadius,
+      color: Theme.of(context).cardColor,
       controller: state.panelController,
       // Widgets
       body: GenerateBody(),
@@ -45,7 +45,10 @@ class GeneratePage extends StatelessWidget {
         child: AnimatedOpacity(
           opacity: !state.panelVisible.value ? 1 : 0,
           duration: const Duration(milliseconds: 250),
-          child: GeneratePanelCollapsed(),
+          child: GestureDetector(
+            onTap: () {},
+            child: GeneratePanelCollapsed(),
+          ),
         ),
       )),
       panelBuilder: (scrollController) {
@@ -54,8 +57,11 @@ class GeneratePage extends StatelessWidget {
           child: AnimatedOpacity(
             opacity: state.panelVisible.value ? 1 : 0,
             duration: const Duration(milliseconds: 250),
-            child: GeneratePanel(
-              scrollController: scrollController,
+            child: GestureDetector(
+              onTap: () {},
+              child: GeneratePanel(
+                scrollController: scrollController,
+              ),
             ),
           ),
         ));
@@ -65,14 +71,17 @@ class GeneratePage extends StatelessWidget {
         state.panelRender.value = true;
         state.panelPosition.value = position;
         state.panelVisible.value = state.panelPosition.value > 0.2;
+        print('show');
       },
       onPanelOpened: () {
         state.panelRender.value = false;
         state.panelOpened.value = true;
+        print('hide');
       },
       onPanelClosed: () {
         state.panelRender.value = false;
         state.panelOpened.value = false;
+        print('hide');
       },
     );
   }
