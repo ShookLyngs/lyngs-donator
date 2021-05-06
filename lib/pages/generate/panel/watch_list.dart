@@ -18,15 +18,23 @@ class PanelWatchList extends GetxWidget<GeneratePageState> {
 
         Container(
           height: 120,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            children: [
-              const SizedBox(width: 8),
-              WatchListCard(),
-              WatchListCard(),
-              const SizedBox(width: 8),
-            ],
+          child: GestureDetector(
+            onHorizontalDragStart: (_) {
+              print('onHorizontalDragStart');
+            },
+            onHorizontalDragEnd: (_) {
+              print('onHorizontalDragEnd');
+            },
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              children: [
+                const SizedBox(width: 8),
+                WatchListCard(),
+                WatchListCard(),
+                const SizedBox(width: 8),
+              ],
+            ),
           ),
         ),
       ],

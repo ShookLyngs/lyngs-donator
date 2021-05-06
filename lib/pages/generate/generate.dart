@@ -71,17 +71,14 @@ class GeneratePage extends StatelessWidget {
         state.panelRender.value = true;
         state.panelPosition.value = position;
         state.panelVisible.value = state.panelPosition.value > 0.2;
-        print('show');
       },
       onPanelOpened: () {
         state.panelRender.value = false;
         state.panelOpened.value = true;
-        print('hide');
       },
       onPanelClosed: () {
         state.panelRender.value = false;
         state.panelOpened.value = false;
-        print('hide');
       },
     );
   }
