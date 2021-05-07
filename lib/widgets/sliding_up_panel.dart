@@ -205,13 +205,12 @@ class SlidingUpPanel extends StatefulWidget {
   _SlidingUpPanelState createState() => _SlidingUpPanelState();
 }
 
-class _SlidingUpPanelState extends State<SlidingUpPanel>
-    with SingleTickerProviderStateMixin {
+class _SlidingUpPanelState extends State<SlidingUpPanel> with SingleTickerProviderStateMixin {
   late AnimationController _ac;
   late ScrollController _sc;
 
   bool _scrollingEnabled = false;
-  VelocityTracker _vt = new VelocityTracker.withKind(PointerDeviceKind.touch);
+  VelocityTracker _vt = VelocityTracker.withKind(PointerDeviceKind.touch);
 
   bool _isPanelVisible = true;
 
@@ -224,7 +223,7 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
   void initState() {
     super.initState();
 
-    _ac = new AnimationController(
+    _ac = AnimationController(
         vsync: this,
         duration: const Duration(milliseconds: 300),
         value: widget.defaultPanelState == PanelState.CLOSED
@@ -232,18 +231,20 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
             : 1.0 //set the default panel state (i.e. set initial value of _ac)
     )
       ..addListener(() {
-        if (widget.onPanelSlide != null) widget.onPanelSlide!(_ac.value);
-
-        if (widget.onPanelOpened != null && _ac.value == 1.0)
+        if (widget.onPanelSlide != null) {
+          widget.onPanelSlide!(_ac.value);
+        }
+        if (widget.onPanelOpened != null && _ac.value == 1.0) {
           widget.onPanelOpened!();
-
-        if (widget.onPanelClosed != null && _ac.value == 0.0)
+        }
+        if (widget.onPanelClosed != null && _ac.value == 0.0) {
           widget.onPanelClosed!();
+        }
       });
 
     // prevent the panel content from being scrolled only if the widget is
     // draggable and panel scrolling is enabled
-    _sc = new ScrollController();
+    _sc = ScrollController();
     _sc.addListener(() {
       if (widget.isDraggable && !_scrollingEnabled) _sc.jumpTo(0);
     });
@@ -265,7 +266,7 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
           builder: (context, child) {
             return Positioned(
               top: widget.parallaxEnabled ? _getParallax() : 0.0,
-              child: child ?? SizedBox(),
+              child: child ?? const SizedBox(),
             );
           },
           child: Container(
@@ -290,7 +291,7 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
                 0) _close();
           }
               : null,
-          onTap: widget.backdropTapClosesPanel ? () => _close() : null,
+          onTap: widget.backdropTapClosesPanel ? _close : null,
           child: AnimatedBuilder(
               animation: _ac,
               builder: (context, _) {
@@ -350,11 +351,12 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
                         (widget.padding != null
                             ? widget.padding!.horizontal
                             : 0),
-                    child: Container(
-                      height: widget.maxHeight,
-                      child: widget.panel != null
-                          ? widget.panel
-                          : widget.panelBuilder!(_sc),
+                    child: IgnorePointer(
+                      ignoring: _ac.value == 0,
+                      child: Container(
+                        height: widget.maxHeight,
+                        child: widget.panel ?? widget.panelBuilder!(_sc),
+                      ),
                     )),
 
                 // header
@@ -367,7 +369,7 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
                   widget.slideDirection == SlideDirection.DOWN
                       ? 0.0
                       : null,
-                  child: widget.header ?? SizedBox(),
+                  child: widget.header ?? const SizedBox(),
                 )
                     : Container(),
 
@@ -402,17 +404,16 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
                   child: Container(
                     height: widget.minHeight,
                     child: widget.collapsed == null
-                        ? Container()
-                        : FadeTransition(
-                      opacity:
-                      Tween(begin: 1.0, end: 0.0).animate(_ac),
-
-                      // if the panel is open ignore pointers (touch events) on the collapsed
-                      // child so that way touch events go through to whatever is underneath
-                      child: IgnorePointer(
-                          ignoring: _isPanelOpen,
-                          child: widget.collapsed),
-                    ),
+                      ? Container()
+                      : FadeTransition(
+                          opacity: Tween(begin: 1.0, end: 0.0).animate(_ac),
+                          // if the panel is open ignore pointers (touch events) on the collapsed
+                          // child so that way touch events go through to whatever is underneath
+                          child: IgnorePointer(
+                            ignoring: _isPanelOpen,
+                            child: widget.collapsed,
+                          ),
+                        ),
                   ),
                 ),
               ],
@@ -430,60 +431,66 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
   }
 
   double _getParallax() {
-    if (widget.slideDirection == SlideDirection.UP)
+    if (widget.slideDirection == SlideDirection.UP) {
       return -_ac.value *
           (widget.maxHeight - widget.minHeight) *
           widget.parallaxOffset;
-    else
+    } else {
       return _ac.value *
           (widget.maxHeight - widget.minHeight) *
           widget.parallaxOffset;
+    }
   }
 
   // returns a gesture detector if panel is used
   // and a listener if panelBuilder is used.
-  // this is because the listener is designed only for use with linking the scrolling of
-  // panels and using it for panels that don't want to linked scrolling yields odd results
+  // this is because the listener is designed only for use with linking
+  // the scrolling of panels and using it for panels that don't want to
+  // linked scrolling yields odd results.
   Widget _gestureHandler({required Widget child}) {
     if (!widget.isDraggable) return child;
 
     if (widget.panel != null) {
       return GestureDetector(
-        onVerticalDragUpdate: (DragUpdateDetails dets) =>
-            _onGestureSlide(dets.delta.dy),
-        onVerticalDragEnd: (DragEndDetails dets) =>
-            _onGestureEnd(dets.velocity),
+        onVerticalDragUpdate: (dets) {
+          _onGestureSlide(dets.delta.dy);
+        },
+        onVerticalDragEnd: (dets) {
+          _onGestureEnd(dets.velocity);
+        },
         child: child,
       );
     }
 
     return Listener(
-      onPointerDown: (PointerDownEvent p) {
+      onPointerDown: (p) {
         _vt.addPosition(p.timeStamp, p.position);
 
+        _scrollingHorizontal = false;
+        _scrollingStated = false;
         _scrollingDeltaX = 0;
         _scrollingDeltaY = 0;
       },
-      onPointerMove: (PointerMoveEvent p) {
-        _vt.addPosition(p.timeStamp, p.position);
-
+      onPointerMove: (p) {
         if (!_scrollingStated) {
           _scrollingDeltaX += p.delta.dx.abs();
           _scrollingDeltaY += p.delta.dy.abs();
 
           if (_scrollingDeltaX + _scrollingDeltaY > 10) {
+            _scrollingStated = true;
+
             if (_scrollingDeltaX.abs() > _scrollingDeltaY.abs()) {
               _scrollingHorizontal = true;
             }
-            _scrollingStated = true;
           }
         }
 
         if (!_scrollingHorizontal) {
+          _vt.addPosition(p.timeStamp, p.position);
           _onGestureSlide(p.delta.dy);
         }
       },
-      onPointerUp: (PointerUpEvent p) {
+      onPointerUp: (p) {
         _scrollingHorizontal = false;
         _scrollingStated = false;
 
@@ -662,7 +669,10 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
 
   //returns whether or not the
   //panel is open
-  bool get _isPanelOpen => _ac.value == 1.0;
+  bool get _isPanelOpen {
+    print(_ac.value == 1.0);
+    return _ac.value == 1.0;
+  }
 
   //returns whether or not the
   //panel is closed
