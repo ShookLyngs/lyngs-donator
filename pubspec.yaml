@@ -12,7 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.1.4
   intl: ^0.17.0
-  sliding_up_panel: ^2.0.0+1
+#  sliding_up_panel: ^2.0.0+1
   flutter_sticky_header: 0.6.0
 
 dev_dependencies:

@@ -1,5 +1,3 @@
-import 'package:lyngs_donator/pages/generate/panel/watch_list.dart';
-
 import '../../../main.dart';
 import '../generate_state.dart';
 import 'recent_status.dart';

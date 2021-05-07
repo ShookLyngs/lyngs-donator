@@ -1,5 +1,3 @@
-import 'package:sliding_up_panel/sliding_up_panel.dart';
-
 import '../../main.dart';
 
 class GeneratePageState extends GetxController {
@@ -24,6 +22,7 @@ class GeneratePageState extends GetxController {
   final RxBool panelOpened = false.obs;
   final RxBool panelVisible = false.obs;
   final RxBool panelRender = false.obs;
+  final RxBool panelDraggable = true.obs;
   // Panel scroller controller
   ScrollController panelScrollController = ScrollController();
 

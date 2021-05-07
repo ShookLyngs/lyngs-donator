@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:sliding_up_panel/sliding_up_panel.dart';
+// import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../../main.dart';
 import 'generate_body.dart';
@@ -22,7 +22,7 @@ class GeneratePage extends StatelessWidget {
     var maxHeight = context.height - statusBarHeight;
     var minHeight = state.panelMinHeight;
 
-    return SlidingUpPanel(
+    return Obx(() => SlidingUpPanel(
       // Configurations
       maxHeight: maxHeight,
       minHeight: minHeight,
@@ -38,6 +38,7 @@ class GeneratePage extends StatelessWidget {
       borderRadius: state.wrapBorderRadius,
       color: Theme.of(context).cardColor,
       controller: state.panelController,
+      isDraggable: state.panelDraggable.value,
       // Widgets
       body: GenerateBody(),
       collapsed: Obx(() => Visibility(
@@ -80,7 +81,7 @@ class GeneratePage extends StatelessWidget {
         state.panelRender.value = false;
         state.panelOpened.value = false;
       },
-    );
+    ));
   }
 
   // If any widget needs to stick with panel's position,
