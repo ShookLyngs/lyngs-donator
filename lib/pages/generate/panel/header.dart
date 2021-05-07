@@ -31,7 +31,7 @@ class PanelHeader extends GetxWidget<GeneratePageState> {
                   children: [
                     const SizedBox(width: 6),
                     const Icon(
-                      Icons.close,
+                      Icons.expand_more,
                       size: 30,
                     ),
                     const SizedBox(width: 6),
