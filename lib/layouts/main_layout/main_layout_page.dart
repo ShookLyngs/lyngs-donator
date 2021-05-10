@@ -1,6 +1,7 @@
 import '../../main.dart';
 import '../../pages/generate/generate.dart';
 import '../../pages/history/history.dart';
+import '../../pages/home/home.dart';
 
 class MainLayoutPage extends GetxWidget<MainLayoutState> {
   const MainLayoutPage();
@@ -19,6 +20,7 @@ class MainLayoutPage extends GetxWidget<MainLayoutState> {
   ];
 
   final List<Widget> bodies = const [
+    HomePage(),
     GeneratePage(),
     HistoryPage(),
   ];
