@@ -5,91 +5,75 @@ class LatestAward extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: Stack(
-        children: [
-          Container(
-            // height: 100,
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
-              borderRadius: const BorderRadius.all(Radius.circular(12)),
-              image: const DecorationImage(
-                image: AssetImage('assets/home/latest-award-darker.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.baseline,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: [
-                    Text(
-                      '#21048',
-                      style: Theme.of(context).textTheme.headline5!.copyWith(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    const Text('05/09(周五)'),
-                  ],
+      child: Container(
+        width: Get.width,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          image: const DecorationImage(
+            image: AssetImage('assets/home/latest-award.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Row(children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '#21048',
+                style: Theme.of(context).textTheme.headline5!.copyWith(
+                  height: 1,
+                  fontSize: 42,
+                  fontWeight: FontWeight.w900,
                 ),
-
-                // const SizedBox(height: 4),
-
-                const Text('单式票 / 1倍 / 2RMB'),
-
-                const SizedBox(height: 12),
-
-                AwardNumberListView(),
-              ],
-            ),
-          ),
-          Positioned(
-            top: 16,
-            right: 16,
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: [
-                      Text(
-                        '￥',
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).backgroundColor,
-                        ),
-                      ),
-                      Text(
-                        '4',
-                        style: TextStyle(
-                          fontSize: 50,
-                          height: 1,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).backgroundColor,
-                        ),
-                      ),
-
-                    ],
-                  ),
-                  Text(
-                    '六等奖',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Theme.of(context).cardColor,
-                    ),
-                  ),
-                ],
               ),
-            ),
+
+              const SizedBox(height: 6),
+
+              Text(
+                '5月9日 周五',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w800,
+                  color: Theme.of(context).cardColor,
+                ),
+              ),
+              Text(
+                '单式票 / 1倍 / 2RMB',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w800,
+                  color: Theme.of(context).cardColor,
+                ),
+              ),
+            ],
           ),
-        ],
+          const Spacer(),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                '￥',
+                style: TextStyle(
+                  fontSize: 26,
+                  height: 1,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).backgroundColor,
+                ),
+              ),
+              Text(
+                '4',
+                style: TextStyle(
+                  fontSize: 72,
+                  height: 1,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).backgroundColor,
+                ),
+              ),
+            ],
+          ),
+        ]),
       ),
     );
   }
@@ -102,7 +86,6 @@ class AwardNumberListView extends StatelessWidget {
     return SizedBox(
       height: 40,
       child: Container(
-        // width: Get.width * 0.55,
         child: ListView(
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
@@ -130,8 +113,6 @@ class AwardNumberListView extends StatelessWidget {
 
                 AwardNumberListItem('12'),
                 AwardNumberListItem('12'),
-
-                const SizedBox(width: 12),
               ],
             ),
           ],
@@ -155,27 +136,9 @@ class AwardNumberListItem extends StatelessWidget {
           Text(
             text,
             style: Theme.of(context).textTheme.bodyText2!.copyWith(
-              fontSize: 24,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).primaryColor,
-              shadows: [
-                Shadow( // bottomLeft
-                  offset: const Offset(-1, -1),
-                  color: Theme.of(context).cardColor,
-                ),
-                Shadow( // bottomRight
-                  offset: const Offset(1, -1),
-                  color: Theme.of(context).cardColor,
-                ),
-                Shadow( // topRight
-                  offset: const Offset(1, 1),
-                  color: Theme.of(context).cardColor,
-                ),
-                Shadow( // topLeft
-                  offset: const Offset(-1, 1),
-                  color: Theme.of(context).cardColor,
-                ),
-              ],
+              color: Theme.of(context).cardColor,
             ),
           ),
           /*Positioned(
