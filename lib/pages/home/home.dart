@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import '../../main.dart';
 import 'latest_award.dart';
+import 'watching_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage();
@@ -14,18 +15,7 @@ class HomePage extends StatelessWidget {
         HomeAppBar(),
         HomeBody(children: [
           LatestAward(),
-
-          /*Flexible(
-            child: ListView.builder(
-              itemCount: 20,
-              itemBuilder: (_context, _index) {
-                return const ListTile(
-                  title: Text('Title'),
-                  subtitle: Text('Subtitle'),
-                );
-              },
-            ),
-          ),*/
+          WatchingList(),
         ]),
       ],
     );

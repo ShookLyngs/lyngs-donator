@@ -26,6 +26,7 @@ class LatestAward extends StatelessWidget {
                   height: 1,
                   fontSize: 42,
                   fontWeight: FontWeight.w900,
+                  // color: Theme.of(context).primaryColorDark,
                 ),
               ),
 
@@ -141,18 +142,6 @@ class AwardNumberListItem extends StatelessWidget {
               color: Theme.of(context).cardColor,
             ),
           ),
-          /*Positioned(
-            left: 2,
-            top: 2,
-            child: Text(
-              text,
-              style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-          ),*/
         ],
       ),
     ));
