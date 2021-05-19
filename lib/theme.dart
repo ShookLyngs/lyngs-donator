@@ -27,7 +27,7 @@ ThemeData get lightTheme {
     primaryColorDark: primary[600],
     primaryColorLight: primary[400],
 
-    scaffoldBackgroundColor: const Color(0xfff9f9f9),
+    scaffoldBackgroundColor: const Color(0xfff5f5f5),
     bottomAppBarColor: const Color(0xffffffff),
     backgroundColor: const Color(0xfff6f6f6),
     cardColor: const Color(0xffffffff),
