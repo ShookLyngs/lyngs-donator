@@ -2,11 +2,17 @@ import '../../main.dart';
 
 class RadiusCard extends StatelessWidget {
   final Widget child;
+  final BorderRadiusGeometry? outerBorderRadius;
+  final ShapeBorder? innerBorderRadius;
+  final EdgeInsetsGeometry? outerPadding;
   final EdgeInsetsGeometry? innerPadding;
   final void Function()? onTap;
 
   RadiusCard({
     required this.child,
+    this.outerBorderRadius,
+    this.innerBorderRadius,
+    this.outerPadding,
     this.innerPadding,
     this.onTap,
   });
@@ -14,15 +20,17 @@ class RadiusCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
+      padding: outerPadding ?? const EdgeInsets.symmetric(vertical: 6),
       child: Ink(
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          borderRadius: outerBorderRadius ?? const BorderRadius.all(
+            Radius.circular(12),
+          ),
         ),
         child: InkWell(
           onTap: onTap,
-          customBorder: RoundedRectangleBorder(
+          customBorder: innerBorderRadius ?? RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
           child: Container(

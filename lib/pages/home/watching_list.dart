@@ -1,11 +1,11 @@
 import '../../main.dart';
-import 'home_section.dart';
+import 'list_section.dart';
 import 'radius_card.dart';
 
 class WatchingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return HomeSection(
+    return ListSection(
       title: '关注中',
       children: [
         WatchingListItem(),

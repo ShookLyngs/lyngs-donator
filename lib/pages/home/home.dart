@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import '../../main.dart';
+import 'checked_list.dart';
+import 'history_list.dart';
 import 'latest_award.dart';
 import 'watching_list.dart';
 
@@ -16,6 +18,8 @@ class HomePage extends StatelessWidget {
         HomeBody(children: [
           LatestAward(),
           WatchingList(),
+          CheckedList(),
+          HistoryList(),
         ]),
       ],
     );

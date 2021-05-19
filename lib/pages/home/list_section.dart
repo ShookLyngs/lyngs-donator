@@ -1,12 +1,19 @@
 import '../../main.dart';
 
-class HomeSection extends StatelessWidget {
+enum ListSectionDirection {
+  row,
+  column,
+}
+
+class ListSection extends StatelessWidget {
   final List<Widget> children;
   final String title;
+  final ListSectionDirection direction;
 
-  HomeSection({
+  ListSection({
     required this.title,
     required this.children,
+    this.direction = ListSectionDirection.column,
   });
 
   @override
@@ -25,9 +32,17 @@ class HomeSection extends StatelessWidget {
           ),
 
           const SizedBox(height: 8),
-          Column(children: children),
+          buildChild(children),
         ],
       ),
     );
+  }
+
+  Widget buildChild(List<Widget> children) {
+    if (direction == ListSectionDirection.row) {
+      return Row(children: children);
+    } else {
+      return Column(children: children);
+    }
   }
 }
