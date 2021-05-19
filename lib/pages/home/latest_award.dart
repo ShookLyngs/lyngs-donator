@@ -4,12 +4,12 @@ class LatestAward extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(22),
       child: Container(
         width: Get.width,
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
+          color: Theme.of(context).primaryColor,
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           image: const DecorationImage(
             image: AssetImage('assets/home/latest-award.jpg'),
@@ -24,9 +24,9 @@ class LatestAward extends StatelessWidget {
                 '#21048',
                 style: Theme.of(context).textTheme.headline5!.copyWith(
                   height: 1,
-                  fontSize: 42,
+                  fontSize: 46,
                   fontWeight: FontWeight.w900,
-                  // color: Theme.of(context).primaryColorDark,
+                  // color: Theme.of(context).backgroundColor,
                 ),
               ),
 
