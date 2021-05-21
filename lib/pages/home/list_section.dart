@@ -55,9 +55,13 @@ class ListSection extends StatelessWidget {
 
   Widget buildChild(List<Widget> children) {
     if (direction == ListSectionDirection.row) {
-      return Row(children: children);
+      return Row(
+        children: children,
+      );
     } else {
-      return Column(children: children);
+      return Column(
+        children: children,
+      );
     }
   }
 }

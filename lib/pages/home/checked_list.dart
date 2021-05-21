@@ -7,24 +7,66 @@ class CheckedList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListSection(
       title: '已开奖',
-      direction: ListSectionDirection.row,
       contentPadding: const EdgeInsets.all(0),
       children: [
-        Expanded(
-          child: SizedBox(
-            height: 86,
-            child: ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: 6,
-              itemBuilder: (_context, index) {
-                return CheckedListItem();
-              },
-              separatorBuilder: (_context, _index) {
-                return const SizedBox(width: 10);
-              },
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: RadiusCard(
+            onTap: () {},
+            innerPadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 24,
             ),
+            child: Row(
+              children: [
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '380/1,965',
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                          color: Theme.of(context).primaryColorDark,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      const Text('本月收入/支出'),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Text('统计'),
+                    const SizedBox(width: 2),
+                    const Icon(
+                      Icons.chevron_right,
+                      size: 18,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        const SizedBox(height: 6),
+
+        SizedBox(
+          height: 90,
+          child: ListView.separated(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            itemCount: 6,
+            itemBuilder: (_context, index) {
+              return CheckedListItem();
+            },
+            separatorBuilder: (_context, _index) {
+              return const SizedBox(width: 10);
+            },
           ),
         ),
       ],
