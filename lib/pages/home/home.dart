@@ -32,7 +32,7 @@ class HomeAppBar extends StatelessWidget {
     return SliverAppBar(
       flexibleSpace: ClipRect(
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: FlexibleSpaceBar(
             titlePadding: const EdgeInsets.all(16),
             title: Row(children: [
