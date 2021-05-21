@@ -6,20 +6,23 @@ class CheckedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListSection(
-      title: '已兑奖',
+      title: '已开奖',
       direction: ListSectionDirection.row,
       children: [
         Expanded(
-          child: Wrap(
-            spacing: 8,
-            children: [
-              CheckedListItem(),
-              CheckedListItem(),
-              CheckedListItem(),
-              CheckedListItem(),
-              CheckedListItem(),
-              CheckedListItem(),
-            ],
+          child: SizedBox(
+            height: 60,
+            child: ListView.separated(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: 6,
+              itemBuilder: (_context, index) {
+                return CheckedListItem();
+              },
+              separatorBuilder: (_context, _index) {
+                return const SizedBox(width: 10);
+              },
+            ),
           ),
         ),
       ],
@@ -53,22 +56,6 @@ class CheckedListItem extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-
-          /*const SizedBox(width: 8),
-          const Text(
-            '-8',
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          )*/
-
-          /*const Spacer(),
-          const Text(
-            '-8 CNY',
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          ),*/
         ],
       ),
     );

@@ -9,17 +9,19 @@ class ListSection extends StatelessWidget {
   final List<Widget> children;
   final String title;
   final ListSectionDirection direction;
+  final EdgeInsetsGeometry? padding;
 
   ListSection({
     required this.title,
     required this.children,
+    this.padding,
     this.direction = ListSectionDirection.column,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24),
+      padding: padding ?? const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
