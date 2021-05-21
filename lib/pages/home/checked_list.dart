@@ -8,11 +8,13 @@ class CheckedList extends StatelessWidget {
     return ListSection(
       title: '已开奖',
       direction: ListSectionDirection.row,
+      contentPadding: const EdgeInsets.all(0),
       children: [
         Expanded(
           child: SizedBox(
-            height: 60,
+            height: 86,
             child: ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: 6,
@@ -35,25 +37,39 @@ class CheckedListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return RadiusCard(
       onTap: () {},
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Container(
-            width: 10,
-            height: 10,
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: const BorderRadius.all(
-                Radius.circular(8),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 10,
+                height: 10,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(8),
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(width: 8),
+              const Text(
+                '#21049',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 8),
-          const Text(
-            '#21049',
+          Text(
+            '+8',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
+              color: Colors.green[600],
             ),
           ),
         ],
