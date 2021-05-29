@@ -25,7 +25,7 @@ class CheckedList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '380/1,965',
+                        '38/1,965',
                         style: Theme.of(context).textTheme.headline5!.copyWith(
                           color: Theme.of(context).primaryColorDark,
                           fontWeight: FontWeight.bold,
@@ -62,7 +62,10 @@ class CheckedList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: 6,
             itemBuilder: (_context, index) {
-              return CheckedListItem();
+              return CheckedListItem(
+                title: '#21049',
+                amount: -8,
+              );
             },
             separatorBuilder: (_context, _index) {
               return const SizedBox(width: 10);
@@ -75,8 +78,17 @@ class CheckedList extends StatelessWidget {
 }
 
 class CheckedListItem extends StatelessWidget {
+  final String title;
+  final double amount;
+
+  CheckedListItem({
+    required this.title,
+    required this.amount,
+  });
+
   @override
   Widget build(BuildContext context) {
+    var statusColor = amount > 0 ? Colors.green[500] : Colors.red[500];
     return RadiusCard(
       onTap: () {},
       child: Column(
@@ -86,20 +98,14 @@ class CheckedListItem extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                ),
+              Dot(
+                size: 10,
+                color: statusColor,
               ),
               const SizedBox(width: 8),
-              const Text(
-                '#21049',
-                style: TextStyle(
+              Text(
+                title,
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
@@ -107,11 +113,11 @@ class CheckedListItem extends StatelessWidget {
             ],
           ),
           Text(
-            '+8',
+            '$amount',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.green[600],
+              color: statusColor,
             ),
           ),
         ],

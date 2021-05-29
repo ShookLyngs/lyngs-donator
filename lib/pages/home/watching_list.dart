@@ -64,7 +64,7 @@ class WatchingListItem extends StatelessWidget {
                       WatchingListNumber('12'),
                       WatchingListNumber('12'),
 
-                      WatchingListNumber('/'),
+                      WatchingListNumber('+'),
 
                       WatchingListNumber('12'),
                       WatchingListNumber('12'),
@@ -73,16 +73,7 @@ class WatchingListItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              Container(
-                width: 8,
-                height: 8,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                ),
-              ),
+              Dot(size: 8),
               const SizedBox(width: 8),
               Text(
                 '4倍 / 8CNY',
