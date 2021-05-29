@@ -1,6 +1,6 @@
 import '../../main.dart';
-import 'list_section.dart';
-import 'radius_card.dart';
+import 'widgets/list_section.dart';
+import 'widgets/radius_card.dart';
 
 class WatchingList extends StatelessWidget {
   @override

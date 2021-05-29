@@ -1,12 +1,13 @@
 import '../../main.dart';
-import 'list_section.dart';
-import 'radius_card.dart';
+import 'widgets/list_more_button.dart';
+import 'widgets/list_section.dart';
+import 'widgets/radius_card.dart';
 
 class HistoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListSection(
-      title: '开奖记录',
+      title: '历史',
       children: [
         HistoryListItem(
           title: '#21048',
@@ -16,6 +17,16 @@ class HistoryList extends StatelessWidget {
             [3, 12],
           ],
         ),
+        HistoryListItem(
+          title: '#21048',
+          amount: -8,
+          balls: [
+            [1, 6, 12, 22, 26],
+            [3, 12],
+          ],
+        ),
+
+        ListMoreButton(text: '历史开奖'),
       ],
     );
   }
@@ -83,7 +94,7 @@ class HistoryListItem extends StatelessWidget {
                 ));
               },
               separatorBuilder: (_, index) => Padding(
-                padding: const EdgeInsets.only(left: 6, right: 12),
+                padding: const EdgeInsets.only(left: 7, right: 14),
                 child: Center(child: Text('+',
                   style: Theme.of(context).textTheme.caption!.copyWith(
                     fontSize: 20,
@@ -110,7 +121,7 @@ class NumberBall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 6),
+      padding: const EdgeInsets.only(right: 7),
       child: Ink(
         height: size,
         width: size,

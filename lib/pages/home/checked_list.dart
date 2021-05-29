@@ -1,6 +1,6 @@
 import '../../main.dart';
-import 'list_section.dart';
-import 'radius_card.dart';
+import 'widgets/list_section.dart';
+import 'widgets/radius_card.dart';
 
 class CheckedList extends StatelessWidget {
   @override
@@ -41,9 +41,10 @@ class CheckedList extends StatelessWidget {
                   children: [
                     const Text('统计'),
                     const SizedBox(width: 2),
-                    const Icon(
+                    Icon(
                       Icons.chevron_right,
                       size: 18,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ],
                 ),
