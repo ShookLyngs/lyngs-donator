@@ -26,7 +26,10 @@ class HistoryList extends StatelessWidget {
           ],
         ),
 
-        ListMoreButton(text: '历史开奖'),
+        ListMoreButton(
+          text: '历史开奖',
+          onTap: () {},
+        ),
       ],
     );
   }
@@ -60,11 +63,18 @@ class HistoryListItem extends StatelessWidget {
               children: [
                 Text(
                   '#21049',
-                  style: Theme.of(context).textTheme.headline5!.copyWith(
+                  style: Theme.of(context).textTheme.headline6!.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                const SizedBox(width: 6),
+                const Text('5月30日'),
                 const Spacer(),
+                Dot(
+                  size: 10,
+                  color: statusColor,
+                ),
+                const SizedBox(width: 16),
                 Text(
                   '$amount',
                   style: TextStyle(
@@ -76,7 +86,7 @@ class HistoryListItem extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           SizedBox(
             height: 30,
             child: ListView.separated(

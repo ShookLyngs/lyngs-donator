@@ -3,7 +3,7 @@ import 'dart:ui';
 import '../../main.dart';
 import 'checked_list.dart';
 import 'history_list.dart';
-import 'latest_award.dart';
+import 'today_actions.dart';
 import 'watching_list.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
       slivers: [
         HomeAppBar(),
         HomeBody(children: [
-          LatestAward(),
+          TodayActions(),
           WatchingList(),
           CheckedList(),
           HistoryList(),
