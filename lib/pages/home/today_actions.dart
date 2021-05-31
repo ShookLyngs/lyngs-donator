@@ -68,7 +68,7 @@ class TodayActions extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              '保存您的彩票记录',
+                              '登录 保存您的记录',
                               style: context.textTheme.caption!.copyWith(
                                 fontSize: 11,
                               ),
