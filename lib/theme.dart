@@ -39,6 +39,10 @@ ThemeData get lightTheme {
         color: const Color(0xff222222),
         height: 1.25,
       ),
+      headline4: theme.textTheme.headline4!.copyWith(
+        color: const Color(0xff222222),
+        height: 1.25,
+      ),
       headline5: theme.textTheme.headline5!.copyWith(
         height: 1.25,
       ),
@@ -84,6 +88,13 @@ ThemeData get darkTheme {
     textTheme: theme.textTheme.copyWith(
       headline1: theme.textTheme.headline1!.copyWith(
         color: const Color(0xffffffff),
+        height: 1.25,
+      ),
+      headline4: theme.textTheme.headline4!.copyWith(
+        color: const Color(0xffffffff),
+        height: 1.25,
+      ),
+      headline5: theme.textTheme.headline5!.copyWith(
         height: 1.25,
       ),
       subtitle1: theme.textTheme.subtitle1!.copyWith(

@@ -6,83 +6,37 @@ class TodayActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        const SizedBox(height: 36),
+        Row(children: [
+          const Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 48,
+              ),
+              child: SizedBox(
+                height: 100,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(12),
+                  ),
+                  child: Image(
+                    fit: BoxFit.cover,
+                    alignment: Alignment.center,
+                    image: AssetImage('assets/home/banner-3.jpg'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ]),
         RadiusCard(
-          outerPadding: const EdgeInsets.symmetric(
-            horizontal: 24,
-            vertical: 16,
+          outerPadding: const EdgeInsets.only(
+            left: 24,
+            right: 24,
+            bottom: 16,
           ),
           innerPadding: const EdgeInsets.all(0),
           child: Column(children: [
-            SizedBox(
-              height: 140,
-              child: Stack(
-                clipBehavior: Clip.none,
-                fit: StackFit.expand,
-                children: [
-                  const Positioned(child: ClipRRect(
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(12),
-                    ),
-                    child: Image(
-                      fit: BoxFit.cover,
-                      image: AssetImage('assets/home/latest-award.jpg'),
-                    ),
-                  )),
-                  Positioned.fill(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(12),
-                          ),
-                          gradient: LinearGradient(
-                            begin: FractionalOffset.bottomCenter,
-                            end: FractionalOffset.topCenter,
-                            colors: [
-                              context.theme.cardColor,
-                              context.theme.cardColor.withOpacity(0),
-                            ],
-                            stops: [0, 0.5],
-                          )),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: -24,
-                    left: 16,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        CircleAvatar(
-                          radius: 36,
-                          backgroundColor: context.theme.highlightColor,
-                          backgroundImage: const AssetImage('assets/common/avatar.jpg'),
-                        ),
-                        const SizedBox(width: 12),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '欢迎',
-                              style: context.textTheme.headline6!.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              '登录 保存您的记录',
-                              style: context.textTheme.caption!.copyWith(
-                                fontSize: 11,
-                              ),
-                            ),
-                            const SizedBox(height: 6),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16,
@@ -92,45 +46,65 @@ class TodayActions extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          '5月18日',
-                          style: context.textTheme.headline5!.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          '周二',
-                          style: TextStyle(
-                            color: context.textTheme.caption!.color,
-                          ),
-                        ),
-                      ],
+                    Text(
+                      '5月18日',
+                      style: context.textTheme.headline5!.copyWith(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                    const SizedBox(height: 12),
+                    Row(children:[
+                      Icon(
+                        Icons.today,
+                        size: 16,
+                        color: context.textTheme.caption!.color,
+                      ),
+                      const SizedBox(width: 4),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: context.theme.canvasColor,
+                          borderRadius:
+                          const BorderRadius.all(Radius.circular(4)),
+                        ),
+                        child: Text(
+                          '周二 / 1 张今日开奖',
+                          style: TextStyle(
+                            color: context.textTheme.bodyText2!.color,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    ]),
                     const SizedBox(height: 4),
                     Row(
                       children: [
-                        Dot(),
-                        const SizedBox(width: 8),
-                        const Text('即将开奖'),
-                        const SizedBox(width: 6),
+                        Icon(
+                          Icons.confirmation_number_outlined,
+                          size: 16,
+                          color: context.textTheme.caption!.color,
+                        ),
+                        const SizedBox(width: 4),
                         Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 8,
-                            vertical: 3,
+                            vertical: 2,
                           ),
                           decoration: BoxDecoration(
                             color: context.theme.canvasColor,
                             borderRadius:
-                                const BorderRadius.all(Radius.circular(4)),
+                            const BorderRadius.all(Radius.circular(4)),
                           ),
                           child: Text(
                             '#21049',
                             style: TextStyle(
                               color: context.textTheme.bodyText1!.color,
-                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                              // fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
@@ -140,10 +114,56 @@ class TodayActions extends StatelessWidget {
                 ),
                 const Spacer(),
                 TextButton(
-                  onPressed: () {},
-                  child: const Text('ROLL ONE'),
+                  onPressed: () {
+                    Get.changeTheme(Get.isDarkMode ? lightTheme : darkTheme);
+                  },
+                  child: const Text('摇一张'),
                 ),
               ]),
+            ),
+            const SizedBox(
+              height: 1,
+              child: Divider(),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 14,
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 26,
+                    backgroundColor: context.theme.highlightColor,
+                    backgroundImage: const AssetImage('assets/common/avatar.jpg'),
+                  ),
+                  const SizedBox(width: 14),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '登录',
+                        style: context.textTheme.headline6!.copyWith(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '并保存您的记录',
+                        style: context.textTheme.caption!.copyWith(
+                          fontSize: 11,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  Icon(
+                    Icons.chevron_right,
+                    color: context.theme.primaryColor,
+                  ),
+                ],
+              ),
             ),
           ]),
         ),
