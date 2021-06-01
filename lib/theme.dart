@@ -31,8 +31,7 @@ ThemeData get lightTheme {
     bottomAppBarColor: const Color(0xffffffff),
     backgroundColor: const Color(0xfff6f6f6),
     cardColor: const Color(0xffffffff),
-    canvasColor: const Color(0xfffafafa),
-
+    canvasColor: const Color(0xffefefef),
 
     dividerColor: Colors.grey[300],
 
