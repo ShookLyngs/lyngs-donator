@@ -31,6 +31,8 @@ ThemeData get lightTheme {
     bottomAppBarColor: const Color(0xffffffff),
     backgroundColor: const Color(0xfff6f6f6),
     cardColor: const Color(0xffffffff),
+    canvasColor: const Color(0xfffafafa),
+
 
     dividerColor: Colors.grey[300],
 
@@ -84,6 +86,7 @@ ThemeData get darkTheme {
     bottomAppBarColor: const Color(0xff424242),
     backgroundColor: const Color(0xff383838),
     cardColor: const Color(0xff424242),
+    canvasColor: const Color(0xff353535),
 
     textTheme: theme.textTheme.copyWith(
       headline1: theme.textTheme.headline1!.copyWith(

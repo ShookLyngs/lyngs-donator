@@ -125,7 +125,7 @@ class NumberBall extends StatelessWidget {
 
   NumberBall({
     required this.text,
-    this.size = 30,
+    this.size = 26,
   });
 
   @override
@@ -142,7 +142,7 @@ class NumberBall extends StatelessWidget {
         child: Center(child: Text(
           formatTextLength(text),
           style: Theme.of(context).textTheme.headline5!.copyWith(
-            fontSize: 14,
+            fontSize: 13,
             fontWeight: FontWeight.bold,
           ),
         )),

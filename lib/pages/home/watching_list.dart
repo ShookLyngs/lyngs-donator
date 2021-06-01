@@ -27,11 +27,34 @@ class WatchingListItem extends StatelessWidget {
           Row(children: [
             Expanded(
               child: Row(children: [
-                Text(
-                  '#21051',
-                  style: Theme.of(context).textTheme.headline5!.copyWith(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                Ink(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 2,
+                  ),
+                  decoration: BoxDecoration(
+                    color: context.theme.canvasColor,
+                    borderRadius:
+                    const BorderRadius.all(Radius.circular(4)),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        '#',
+                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: context.theme.primaryColor,
+                        ),
+                      ),
+                      const SizedBox(width: 2),
+                      Text(
+                        '21051',
+                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                          // fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ]),
@@ -45,7 +68,7 @@ class WatchingListItem extends StatelessWidget {
             const Text('5月19日 周三'),
           ]),
 
-          const SizedBox(height: 2),
+          const SizedBox(height: 6),
 
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,7 +101,7 @@ class WatchingListItem extends StatelessWidget {
               Text(
                 '4倍 / 8CNY',
                 style: TextStyle(
-                  color: Theme.of(context).primaryColorDark,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ],
