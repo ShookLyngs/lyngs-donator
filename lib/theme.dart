@@ -47,6 +47,9 @@ ThemeData get lightTheme {
       headline5: theme.textTheme.headline5!.copyWith(
         height: 1.25,
       ),
+      headline6: theme.textTheme.headline6!.copyWith(
+        height: 1.25,
+      ),
       subtitle1: theme.textTheme.subtitle1!.copyWith(
         height: 1.25,
       ),
