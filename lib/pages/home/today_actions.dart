@@ -113,7 +113,7 @@ class TodayActions extends StatelessWidget {
             const Spacer(),
             TextButton(
               onPressed: () {
-                Get.changeTheme(Get.isDarkMode ? lightTheme : darkTheme);
+                // Get.changeTheme(Get.isDarkMode ? lightTheme : darkTheme);
                 showRollTicketSheet();
               },
               style: TextButton.styleFrom(
