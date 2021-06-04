@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
+
 import '../../main.dart';
+import 'roll_ticket_sheet.dart';
 import 'widgets/radius_card.dart';
 
 class TodayActions extends StatelessWidget {
@@ -50,7 +53,7 @@ class TodayActions extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 12),
-                Row(children:[
+                Row(children: [
                   Icon(
                     Icons.today,
                     size: 16,
@@ -64,8 +67,7 @@ class TodayActions extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: context.theme.canvasColor,
-                      borderRadius:
-                      const BorderRadius.all(Radius.circular(4)),
+                      borderRadius: const BorderRadius.all(Radius.circular(4)),
                     ),
                     child: Text(
                       '周二 / 1 张今日开奖',
@@ -93,7 +95,7 @@ class TodayActions extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: context.theme.canvasColor,
                         borderRadius:
-                        const BorderRadius.all(Radius.circular(4)),
+                            const BorderRadius.all(Radius.circular(4)),
                       ),
                       child: Text(
                         '#21049',
@@ -112,6 +114,7 @@ class TodayActions extends StatelessWidget {
             TextButton(
               onPressed: () {
                 Get.changeTheme(Get.isDarkMode ? lightTheme : darkTheme);
+                showRollTicketSheet();
               },
               style: TextButton.styleFrom(
                 primary: context.theme.primaryTextTheme.button!.color,
@@ -131,7 +134,6 @@ class TodayActions extends StatelessWidget {
             ),
           ]),
         ),
-
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: SizedBox(
@@ -139,7 +141,6 @@ class TodayActions extends StatelessWidget {
             child: Divider(),
           ),
         ),
-
         RadiusCard(
           onTap: () {},
           color: context.theme.canvasColor,

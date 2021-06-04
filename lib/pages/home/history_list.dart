@@ -122,10 +122,18 @@ class HistoryListItem extends StatelessWidget {
 class NumberBall extends StatelessWidget {
   final String text;
   final double size;
+  final Color? color;
+  final Color? textColor;
+  final double textSize;
+  final bool format;
 
-  NumberBall({
+  const NumberBall({
     required this.text,
     this.size = 26,
+    this.color,
+    this.textColor,
+    this.textSize = 13,
+    this.format = true,
   });
 
   @override
@@ -136,13 +144,14 @@ class NumberBall extends StatelessWidget {
         height: size,
         width: size,
         decoration: BoxDecoration(
-          color: Theme.of(context).backgroundColor,
+          color: color ?? Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.all(Radius.circular(size)),
         ),
         child: Center(child: Text(
-          formatTextLength(text),
-          style: Theme.of(context).textTheme.headline5!.copyWith(
-            fontSize: 13,
+          format ? formatTextLength(text) : text,
+          style: TextStyle(
+            color: textColor ?? Theme.of(context).textTheme.headline5!.color,
+            fontSize: textSize,
             fontWeight: FontWeight.bold,
           ),
         )),
